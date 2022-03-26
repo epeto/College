@@ -1,0 +1,3 @@
+./mono_triangle trifuerza
+z3 output/formula_trifuerza.smt2 > modelos/modelo_trifuerza
+java -cp gs-core-1.3.jar:. Visualiza input/trifuerza modelos/modelo_trifuerza

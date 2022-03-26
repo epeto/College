@@ -1,0 +1,135 @@
+sat
+(model 
+  (define-fun kp2 () Bool
+    false)
+  (define-fun ij2 () Bool
+    true)
+  (define-fun on1 () Bool
+    false)
+  (define-fun ab2 () Bool
+    false)
+  (define-fun el1 () Bool
+    true)
+  (define-fun fk2 () Bool
+    true)
+  (define-fun hl2 () Bool
+    true)
+  (define-fun kp1 () Bool
+    true)
+  (define-fun gp1 () Bool
+    true)
+  (define-fun ad2 () Bool
+    false)
+  (define-fun cd2 () Bool
+    true)
+  (define-fun cf1 () Bool
+    true)
+  (define-fun hi1 () Bool
+    true)
+  (define-fun ad1 () Bool
+    true)
+  (define-fun jk2 () Bool
+    true)
+  (define-fun el2 () Bool
+    false)
+  (define-fun hi2 () Bool
+    false)
+  (define-fun ac1 () Bool
+    true)
+  (define-fun cg2 () Bool
+    false)
+  (define-fun jk1 () Bool
+    false)
+  (define-fun dg1 () Bool
+    true)
+  (define-fun dg2 () Bool
+    false)
+  (define-fun np1 () Bool
+    true)
+  (define-fun ef1 () Bool
+    false)
+  (define-fun np2 () Bool
+    false)
+  (define-fun go1 () Bool
+    false)
+  (define-fun on2 () Bool
+    true)
+  (define-fun cd1 () Bool
+    false)
+  (define-fun kl2 () Bool
+    false)
+  (define-fun op1 () Bool
+    true)
+  (define-fun eh1 () Bool
+    true)
+  (define-fun ce2 () Bool
+    false)
+  (define-fun be1 () Bool
+    true)
+  (define-fun fg1 () Bool
+    false)
+  (define-fun kl1 () Bool
+    true)
+  (define-fun mk2 () Bool
+    true)
+  (define-fun bc1 () Bool
+    false)
+  (define-fun gp2 () Bool
+    false)
+  (define-fun fl2 () Bool
+    false)
+  (define-fun jl1 () Bool
+    true)
+  (define-fun fp2 () Bool
+    false)
+  (define-fun fk1 () Bool
+    false)
+  (define-fun mp2 () Bool
+    false)
+  (define-fun ef2 () Bool
+    true)
+  (define-fun nm1 () Bool
+    false)
+  (define-fun hl1 () Bool
+    false)
+  (define-fun ac2 () Bool
+    false)
+  (define-fun fl1 () Bool
+    true)
+  (define-fun fg2 () Bool
+    true)
+  (define-fun be2 () Bool
+    false)
+  (define-fun ce1 () Bool
+    true)
+  (define-fun nm2 () Bool
+    true)
+  (define-fun mp1 () Bool
+    true)
+  (define-fun il1 () Bool
+    true)
+  (define-fun bc2 () Bool
+    true)
+  (define-fun op2 () Bool
+    false)
+  (define-fun eh2 () Bool
+    false)
+  (define-fun fp1 () Bool
+    true)
+  (define-fun go2 () Bool
+    true)
+  (define-fun ij1 () Bool
+    false)
+  (define-fun il2 () Bool
+    false)
+  (define-fun jl2 () Bool
+    false)
+  (define-fun ab1 () Bool
+    true)
+  (define-fun cf2 () Bool
+    false)
+  (define-fun cg1 () Bool
+    true)
+  (define-fun mk1 () Bool
+    false)
+)

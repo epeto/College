@@ -1,0 +1,8 @@
+#lang plai
+
+(define-type FAE
+	[num (n number?)]
+	[add (lhs FAE?) (rhs FAE?)]
+	[id (name symbol?)]
+	[fun (param symbol?) (body FAE?)]
+	[app (fun-expr FAE?) (arg-expr FAE?)])

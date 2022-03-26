@@ -1,0 +1,9 @@
+
+Se encuentra el flujo máximo en una red buscando trayectorias aumentantes y usando una red residual.
+
+Para compilar y ejecutar debes estar en la carpeta src. Debes tener instalado java y python 3.
+
+Compilar: make
+Ejecutar: python3 run.py
+
+Al ejecutar, el programa te pide el nombre del ejemplar. Aquí debes poner, por ejemplo, red1.csv

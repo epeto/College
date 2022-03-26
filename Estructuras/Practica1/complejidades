@@ -1,0 +1,7 @@
+Complejidad en tiempo de cada algoritmo (solo se muestran cotas superiores).
+
+Pascal recursivo: O(2^n)
+Pascal iterativo: O(n²)
+Fibonacci recursivo: O(2^n)
+Fibonacci iterativo: O(n)
+

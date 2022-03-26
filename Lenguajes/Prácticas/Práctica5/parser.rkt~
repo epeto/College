@@ -1,0 +1,16 @@
+#lang plai
+
+(require "grammars.rkt")
+
+;; Analizador sintáctico para FBAE.
+;; Dada una expresión en sintaxis concreta, regresa el árbol de sintaxis abstracta correspondiente, es
+;; decir, construye expresiones del tipo de dato abstracto definido en el archivo grammars.rkt
+;; parse: symbol -> CFWBAE/L.
+(define (parse sexp)
+   (error 'parse "Función no implementada"))
+
+;; Función que quita el azúcar sintáctica de las expresiones en FWBAE. En pocas palabras, hace un 
+;; mapeo entre FWBAE y FBAE. Las expresiones que tienen azúcar sintáctica son with y with*
+;; desugar CFWBAE/L -> CFBAE/L.
+(define (desugar sexps)
+   (error 'parse "Función no implementada"))

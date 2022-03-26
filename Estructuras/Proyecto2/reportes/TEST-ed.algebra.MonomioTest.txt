@@ -1,0 +1,5 @@
+Testcase: ed.algebra.MonomioTest
+Tests run: 1, Failures: 0, Skipped: 0, Aborted: 0, Time elapsed: 39 milli sec(s)
+------------- Standard Output ---------------
+Suma monomios: 5.2x^2 + 1.2x^2 = 6.4x^2
+------------- ---------------- ---------------

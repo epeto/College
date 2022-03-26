@@ -1,0 +1,34 @@
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath, amsbsy} % simbolitos
+\usepackage{graphicx}
+\title{Práctica 2\\Algoritmos paralelos}
+\author{Peto Gutierrez Emmanuel}
+\begin{document}
+\maketitle
+
+En la siguiente tabla se muestran los tiempos obtenidos al ejecutar la suma de números binarios. El tiempo está dado en microsegundos y $n$ es la cantidad de dígitos de cada número binario. El tiempo del algoritmo secuencial se da en la columna $T_s$ y el tiempo del algoritmo paralelo en $T_p$.
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+$n$ & $T_s$ ($\mu$s) & $T_p$ ($\mu$s) \\ \hline \hline
+$2^{3}$ & 1 & 772 \\ \hline
+$2^{6}$ & 2 & 1,802 \\ \hline
+$2^{9}$ & 8 & 12,844 \\ \hline
+$2^{12}$ & 108 & 135,100 \\ \hline
+$2^{15}$ & 786 & 3,359,487 \\ \hline
+\end{tabular}
+\caption{Tiempos de ejecución en microsegundos.}
+\end{center}
+\label{table:1}
+\end{table}
+
+Como se observa en el Cuadro 1, el tiempo en el algoritmo secuencial toma menos tiempo que el algoritmo paralelo. Esto puede ser porque en el algoritmo paralelo se tienen que crear nuevos arreglos para calcular las sumas parciales. Una vez calculadas las sumas parciales se copian los sub-arreglos en el arreglo resultado.
+
+\end{document}
+

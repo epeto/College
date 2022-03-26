@@ -1,0 +1,29 @@
+.button {
+    -fx-text-fill: gainsboro;
+    -fx-background-color: #111122;
+}
+
+.dark {
+    -fx-text-fill: gainsboro;
+    -fx-background: #222222;
+    -fx-background-color: #222222;
+}
+
+.dark-error {
+    -fx-text-fill: red;
+    -fx-background: #222222;
+    -fx-background-color: #222222;
+}
+
+.arista {
+    -fx-stroke: white;
+    -fx-stroke-width: 2;
+}
+
+.text-area {
+    -text-area-background: #111122 ;
+}
+
+.text-area .content {
+    -fx-background-color: #111122 ;
+}

@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath, amsbsy} % simbolitos
+\usepackage{multirow} % para tablas
+\usepackage{enumerate}
+\title{Práctica 8 \\ Organización y arquitectura de computadoras}
+\author{Peto Gutiérrez Emmanuel}
+\begin {document}
+\maketitle
+\begin{enumerate}[1.]
+\item En un procesador, ¿qué es el \textit{modo supervisor}? ¿qué funciones tiene? ¿cómo se implementa?
+	\begin{itemize}
+	\item Es un modo de operación que tiene acceso a de instrucciones privilegiadas del procesador.
+	\item Algunas funciones de este modo son: control de entrada y salida, manejo del timer y manejo de interrupciones.
+	\item Se implementa cambiando un bit de modo que está en el hardware. Cambiar el bit de modo es algo que realiza el sistema operativo, pero permite al usuario acceder a algunas instrucciones privilegiadas mediante llamadas al sistema.
+	\end{itemize}
+\item ¿Cuál es la relación entre una llamada al sistema y una excepción?
+	\begin{itemize}
+	\item Ambas son señales que se envían al procesador para interrumpir lo que está haciendo y ejecutar un servicio del sistema operativo.
+	\end{itemize}
+\item ¿Qué es un vector de interrupciones?
+	\begin{itemize}
+	\item Es una tabla que contiene direcciones a rutinas de servicios de interrupción. Sirve para manejar varias interrupciones.
+	\end{itemize}
+\end{enumerate}
+\end {document}

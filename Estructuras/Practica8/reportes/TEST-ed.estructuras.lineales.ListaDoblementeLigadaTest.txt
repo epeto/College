@@ -1,0 +1,370 @@
+Testsuite: ed.estructuras.lineales.ListaDoblementeLigadaTest
+Tests run: 75, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.2 sec
+------------- Standard Output ---------------
+listaddAllContainsTest:
+	Revisa que la estructura contenga todos los elementos insertados por
+	addAll(int, Collection<?>)
+	[1.0/1.0]	Passed.
+listIteratorIllegalStateSetRemoveTest:
+	Revisa que se lance IllegalStateException cuando se invoca set(E) de
+	List Iterator si no se invoca next() o previous() tras invocar add(E) o
+	remove() de List Iterator
+Antes de agregar.
+A punto de lanzar excepción.
+Segunda prueba pasada
+	[1.0/1.0]	Passed.
+listaddAllIllegalArgumentTest:
+	Revisa que se lance IllegalArgumentException si el parámetro
+	Collection<?> en addAll(int, Collection<?>) es la misma colección
+	[1.0/1.0]	Passed.
+lastIndexOfNoElementTest:
+	Revisa que lastIndexOf(E) devuelva -1 cuando el elemento dado no esta
+	en la estructura
+	[1.0/1.0]	Passed.
+listaddAllIndexOutOfBoundsTest:
+	Revisa que se lance IndexOutOfBoundsException si el parámetro int en
+	addAll(int, Collection<?>) esta fuera de rango
+	[1.0/1.0]	Passed.
+listaddIndexOutOfBoundsTest:
+	Revisa que se lance IndexOutOfBoundsException si el parámetro int de
+	add(int, E) esta fuera de rango
+	[1.0/1.0]	Passed.
+setIndexOutOfBoundsTest:
+	Revisa que se lance IndexOutOfBoundsException si el parámetro int en
+	set(int, E) esta fuera de rango
+	[1.0/1.0]	Passed.
+listIteratoraddOrderTest:
+	Revisa que la estructura mantenga el orden correcto de elementos tras
+	insertar con add() de List Iterator
+	[1.0/1.0]	Passed.
+listaddContainsTest:
+	Revisa que la estructura contenga los elementos insertados con add(int,
+	E)
+	[1.0/1.0]	Passed.
+listIteratorNoElementsTest:
+	Revisa que se lance NoSuchElementException en next() y previous() si no
+	existe ese elemento
+	[1.0/1.0]	Passed.
+getContainsTest:
+	Revisa que get(int) devuelva el elemento correcto con respecto a
+	indexOf(E)
+	[1.0/1.0]	Passed.
+listremoveSizeTest:
+	Revisa que la cantidad de elementos tras borrar sea consistente con
+	remove(int)
+	[1.0/1.0]	Passed.
+listsetContainsTest:
+	Revisa que la estructura contenga los elementos insertados con set(int,
+	E)
+	[1.0/1.0]	Passed.
+indexOfNoElementTest:
+	Revisa que indexOf(E) devuelva -1 cuando el elemento dado no esta en la
+	estructura
+	[1.0/1.0]	Passed.
+listiteratoraddSizeTest:
+	Revisa que la estructura mantenga la cantidad correcta de elementos,
+	ademas de no estar vacía tras insertar con add() de List Iterator
+	[1.0/1.0]	Passed.
+listIteratorIndexOutOfBoundsTest:
+	Revisa que se lance IndexOutOfBoundsException si el parámetro en
+	listIterator(int) esta fuera de rango
+	[1.0/1.0]	Passed.
+removeIndexOutOfBoundsTest:
+	Revisa que se lance IndexOutOfBoundsException si el parámetro de
+	remove(int) esta fuera de rango
+	[1.0/1.0]	Passed.
+listIteratoraddContainsTest:
+	Revisa que la estructura contenga los elementos insertados con add() de
+	List Iterator
+	[1.0/1.0]	Passed.
+listaddSizeTest:
+	Revisa que la estructura mantenga la cantidad correcta de elementos,
+	ademas de no estar vacía tras insertar con add(int, E)
+	[1.0/1.0]	Passed.
+listaddAllNullPointerTest:
+	Revisa que se lance NullPointerException si el parámetro Collection<?>
+	en addAll(int, Collection<?>) es null
+	[1.0/1.0]	Passed.
+listIteratorsetContainsTest:
+	Revisa que la estructura contenga los elementos insertados con set(E)
+	de List Iterator
+	[1.0/1.0]	Passed.
+listIteratorIllegalStateTest:
+	Revisa que se lance IllegalStateException cuando se invoca set(E) o
+	remove de List Iterator si no se invoca next() o previous() primero
+	[1.0/1.0]	Passed.
+listremoveContainsTest:
+	Prueba que la estructura no contenga elementos después de borrarlos con
+	remove(int)
+	[1.0/1.0]	Passed.
+getIndexOutOfBoundsTest:
+	Revisa que se lance IndexOutOfBoundsException si el parámetro en
+	get(int) esta fuera de rango
+	[1.0/1.0]	Passed.
+listIteratorIndexConstructorTest:
+	Revisa que listIterator(int) construya al iterador en la posición
+	correcta
+	[1.0/1.0]	Passed.
+listaddAllSizeTest:
+	Revisa que la estructura contenga la cantidad esperada de elementos
+	insertados por addAll(int, Collection<?>)
+	[1.0/1.0]	Passed.
+listIteratorIllegalStateAddRemoveTest:
+	Revisa que se lance IllegalStateException cuando se invoca remove() de
+	List Iterator si no se invoca next() o previous() tras invocar add(E) o
+	remove() de List Iterator
+	[1.0/1.0]	Passed.
+equalsItselfTest:
+	Revisa la igualdad con equals(Object) de una estructura con si misma
+	[1.0/1.0]	Passed.
+toGenericArrayNullPTest:
+	Revisa que toArray(E[]) lance NullPointerException si el parámetro es
+	null
+	[1.0/1.0]	Passed.
+removeAllEmptyTest:
+	Revisa que removeAll(Collection<E>) devuelva falso si la estructura
+	está vacía
+	[1.0/1.0]	Passed.
+iteratorContainsTest:
+	Revisa que los elementos devueltos por el iterador sean los mismos que
+	los insertados, no necesariamente en el mismo orden
+	[1.0/1.0]	Passed.
+equalsNullTest:
+	Revisa la desigualdad con equals(Object) de una estructura con null
+	[1.0/1.0]	Passed.
+removeAllItselfTest:
+	Revisa que la estructura este vacía y con cero elementos tras usar
+	removeAll(Collection<E>) con ella misma
+	[1.0/1.0]	Passed.
+toObjectArrayContainsTest:
+	Revisa que el orden de los elementos devueltos por toArray() sea el
+	mismo que el del iterador
+	[1.0/1.0]	Passed.
+toGenericArrayZeroSizeTest:
+	Revisa que el número de elementos de toArray(E[]) sea correcto cuando
+	el arreglo pasado es de menor longitud al tamaño de la estructura
+	[1.0/1.0]	Passed.
+containsAllItselfTest:
+	Revisa que containsAll(Collection<?>) devuelva verdadero cuando el
+	parámetro es la estructura misma
+	[1.0/1.0]	Passed.
+emptyTest:
+	Revisa que la estructura este vacía tras ser inicializada
+	[1.0/1.0]	Passed.
+zeroSizeTest:
+	Revisa que al inicializar la estructura la cantidad de elementos
+	devuelta por size() sea cero
+	[1.0/1.0]	Passed.
+retainAllEmptyTest:
+	Revisa que se borren todos los elementos si el parámetro de
+	retainAll(Collection<E>) es una estructura vacía
+	[1.0/1.0]	Passed.
+removeAllSizeTest:
+	Revisa que la estructura este vacía y con cero elementos tras usar
+	removeAll(Collection<E>) con una estructura equivalente
+	[1.0/1.0]	Passed.
+toGenericArrayNullFillTest:
+	Revisa que toArray(E[]) devuelva elementos null cuando la longitud del
+	arreglo es mayor al número de elementos en la estructura
+	[1.0/1.0]	Passed.
+addAllNullPointerTest:
+	Revisa que se lance NullPointerException si el parámetro es null en
+	addAll(Collection<?>)
+	[1.0/1.0]	Passed.
+retainAllNullPointerTest:
+	Revisa que retainAll(Collection<E>) lance NullPointerException si el
+	parámetro es null
+	[1.0/1.0]	Passed.
+containsAllInitTest:
+	Revisa que dos estructuras vacías tengan los mismos elementos con
+	containsAll(Collection<?>)
+	[1.0/1.0]	Passed.
+retainAllItselfTest:
+	Revisa que retainAll(Collection<E>) mantenga la cantidad de elementos
+	si el parámetro es la misma estructura
+	[1.0/1.0]	Passed.
+containsAllTest:
+	Revisa que dos estructuras con los mismos elementos contengan todos los
+	elementos de la otra estructura con containsAll(Collection<?>)
+	[1.0/1.0]	Passed.
+addAllIllegalArgumentTest:
+	Revisa que se lance IllegalArgumentException si el parámetro es la
+	misma colección en addAll(Collection<?>)
+	[1.0/1.0]	Passed.
+removeSizeTest:
+	Revisa que la cantidad de elementos tras borrar sea consistente con
+	remove(E)
+	[1.0/1.0]	Passed.
+toGenericArraySizeTest:
+	Revisa que el número de elementos devueltos por toArray(E[]) sea el
+	mismo que el del iterador
+	[1.0/1.0]	Passed.
+retainAllContainsTest:
+	Revisa que retainAll(Collection<E>) no haga cambios entre dos
+	estructuras equivalentes
+	[1.0/1.0]	Passed.
+iteratorInitTest:
+	Revisa que hasNext() del iterador devuelva falso cuando la estructura
+	esta vacía
+	[1.0/1.0]	Passed.
+addSizeTest:
+	Revisa que la estructura mantenga la cantidad correcta de elementos,
+	ademas de no estar vacía tras insertar con add(E)
+	[1.0/1.0]	Passed.
+addContainsTest:
+	Revisa que la estructura contenga los elementos insertados con add(E)
+	[1.0/1.0]	Passed.
+clearSizeTest:
+	Revisa que la cantidad de elementos sea 0 y la estructura este vacía
+	tras invocar clear()
+	[1.0/1.0]	Passed.
+equalsTest:
+	Revisa la igualdad con equals(Object) para el orden y cantidad de
+	elementos para dos estructuras no vacías equivalentes
+	[1.0/1.0]	Passed.
+iteratorSizeTest:
+	Revisa que el número de elementos devueltos por el iterador sea el
+	mismo al número de elementos en la estructura
+	[1.0/1.0]	Passed.
+equalsObjectTest:
+	Revisa la desigualdad con equals(Object) de una estructura con algo que
+	no es una estructura
+	[1.0/1.0]	Passed.
+removeContainsTest:
+	Prueba que la estructura no contenga elementos después de borrarlos con
+	remove(E)
+	[1.0/1.0]	Passed.
+clearContainsTest:
+	Revisa que la estructura no contenga ningún elemento borrado por
+	clear()
+	[1.0/1.0]	Passed.
+removeEmptyTest:
+	Revisa que se devuelva falso cuando se intenta borrar con remove(E) y
+	no hay elementos
+	[1.0/1.0]	Passed.
+iteratorNoElementExceptionTest:
+	Revisa que next() del iterador lance NoSuchElementException cuando la
+	estructura no tiene elementos
+	[1.0/1.0]	Passed.
+removeAllContainsTest:
+	Revisa que la estructura no contenga ningún elemento borrado por
+	removeAll(Collection<E>)
+	[2.0/2.0]	Passed.
+removeAllNullPointerTest:
+	Revisa que removeAll(Collection<E>) lance NullPointerException si el
+	parámetro es null
+	[1.0/1.0]	Passed.
+retainAllDontContainsTest:
+	Revisa que retainAll(Collection<E>) borre todos los elementos entre dos
+	estructuras diferentes
+	[1.0/1.0]	Passed.
+addAllContainsTest:
+	Revisa que la estructura contenga todos los elementos insertados por
+	addAll(Collection<?>)
+	[1.0/1.0]	Passed.
+addAllSizeTest:
+	Revisa que la estructura contenga la cantidad esperada de elementos
+	insertados por addAll(Collection<?>)
+	[1.0/1.0]	Passed.
+toGenericArrayContainsTest:
+	Revisa que el orden de los elementos devueltos por toArray(E[]) sea el
+	mismo que el del iterador
+	[1.0/1.0]	Passed.
+iteratorRemoveNoNextTest:
+	Revisa que en el iterador lance IllegalStateException si se intenta
+	invocar remove() sin invocar next()
+	[1.0/1.0]	Passed.
+toObjectArraySizeTest:
+	Revisa que el número de elementos devueltos por toArray() sea el mismo
+	que el que devuelve el iterador
+	[1.0/1.0]	Passed.
+===========================================================================
+ Insercion (Aciertos: 8.0/8.0)                          Puntaje: 20.0/20.0 
+===========================================================================
+ Borrado (Aciertos: 8.0/8.0)                            Puntaje: 20.0/20.0 
+===========================================================================
+ Busqueda (Aciertos: 18.0/18.0)                         Puntaje: 30.0/30.0 
+===========================================================================
+ *All (Aciertos: 23.0/23.0)                             Puntaje: 15.0/15.0 
+===========================================================================
+ Otros (Aciertos: 13.0/13.0)                            Puntaje: 15.0/15.0 
+===========================================================================
+ Puntaje Total:                                                100.0/100.0 
+===========================================================================
+------------- ---------------- ---------------
+
+Testcase: listaddAllContainsTest took 0.029 sec
+Testcase: listIteratorIllegalStateSetRemoveTest took 0.001 sec
+Testcase: listaddAllIllegalArgumentTest took 0.001 sec
+Testcase: lastIndexOfNoElementTest took 0.001 sec
+Testcase: listaddAllIndexOutOfBoundsTest took 0.001 sec
+Testcase: listaddIndexOutOfBoundsTest took 0.001 sec
+Testcase: setIndexOutOfBoundsTest took 0.001 sec
+Testcase: listIteratoraddOrderTest took 0 sec
+Testcase: listaddContainsTest took 0.001 sec
+Testcase: listIteratorNoElementsTest took 0.001 sec
+Testcase: getContainsTest took 0.001 sec
+Testcase: listremoveSizeTest took 0.002 sec
+Testcase: listsetContainsTest took 0.001 sec
+Testcase: indexOfNoElementTest took 0.001 sec
+Testcase: listiteratoraddSizeTest took 0.001 sec
+Testcase: listIteratorIndexOutOfBoundsTest took 0.001 sec
+Testcase: removeIndexOutOfBoundsTest took 0 sec
+Testcase: listIteratoraddContainsTest took 0 sec
+Testcase: listaddSizeTest took 0 sec
+Testcase: listaddAllNullPointerTest took 0 sec
+Testcase: listIteratorsetContainsTest took 0 sec
+Testcase: listIteratorIllegalStateTest took 0 sec
+Testcase: listremoveContainsTest took 0 sec
+Testcase: getIndexOutOfBoundsTest took 0.001 sec
+Testcase: listIteratorIndexConstructorTest took 0.001 sec
+Testcase: listaddAllSizeTest took 0.001 sec
+Testcase: listIteratorIllegalStateAddRemoveTest took 0.001 sec
+Testcase: equalsItselfTest took 0.001 sec
+Testcase: toGenericArrayNullPTest took 0.001 sec
+Testcase: removeAllEmptyTest took 0 sec
+Testcase: iteratorContainsTest took 0 sec
+Testcase: equalsNullTest took 0 sec
+Testcase: removeAllItselfTest took 0.001 sec
+Testcase: toObjectArrayContainsTest took 0.001 sec
+Testcase: toGenericArrayZeroSizeTest took 0.001 sec
+Testcase: containsAllItselfTest took 0.001 sec
+Testcase: emptyTest took 0 sec
+Testcase: zeroSizeTest took 0.001 sec
+Testcase: retainAllEmptyTest took 0.001 sec
+Testcase: removeAllSizeTest took 0 sec
+Testcase: toGenericArrayNullFillTest took 0.001 sec
+Testcase: addAllNullPointerTest took 0.001 sec
+Testcase: retainAllNullPointerTest took 0.001 sec
+Testcase: removeUnsupportedTest took 0.001 sec
+Testcase: containsAllInitTest took 0.001 sec
+Testcase: retainAllItselfTest took 0.001 sec
+Testcase: containsAllTest took 0 sec
+Testcase: addAllIllegalArgumentTest took 0 sec
+Testcase: removeSizeTest took 0 sec
+Testcase: toGenericArraySizeTest took 0.001 sec
+Testcase: retainAllContainsTest took 0 sec
+Testcase: iteratorInitTest took 0 sec
+Testcase: addSizeTest took 0.001 sec
+Testcase: addContainsTest took 0.001 sec
+Testcase: removeAllUnsupportedTest took 0 sec
+Testcase: iteratorRemoveUnsupportedTest took 0 sec
+Testcase: clearSizeTest took 0 sec
+Testcase: equalsTest took 0.001 sec
+Testcase: iteratorSizeTest took 0.001 sec
+Testcase: equalsObjectTest took 0.001 sec
+Testcase: removeContainsTest took 0.001 sec
+Testcase: clearContainsTest took 0 sec
+Testcase: removeEmptyTest took 0.001 sec
+Testcase: iteratorNoElementExceptionTest took 0.001 sec
+Testcase: constructorIllegalNoSizeTest took 0 sec
+Testcase: removeAllContainsTest took 0.001 sec
+Testcase: removeAllNullPointerTest took 0.001 sec
+Testcase: retainAllDontContainsTest took 0.001 sec
+Testcase: constructorIllegalWithSizeTest took 0.001 sec
+Testcase: addAllContainsTest took 0.001 sec
+Testcase: addAllSizeTest took 0.001 sec
+Testcase: toGenericArrayContainsTest took 0.001 sec
+Testcase: iteratorRemoveNoNextTest took 0 sec
+Testcase: retainAllUnsupportedTest took 0 sec
+Testcase: toObjectArraySizeTest took 0 sec

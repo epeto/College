@@ -1,0 +1,234 @@
+* Fecha de entrega
+23.10.18
+* Introducción
+El analizador sintáctico que se tiene ya construido, únicamente valida que la cadena
+(el programa fuente) sea una de las que se pueden generar con la
+gramática del lenguaje. Este proyecto tiene como objetivo agregarle al
+reconocimiento sintáctico la generación del árbol de sintaxis abstracta
+(/AST Abstract Syntax Tree/). Nos basaremos
+en el patrón Compuesto para darle estructura al AST y en el despacho dinámico
+que ofrece Java para obtener el comportamiento específico de cada nodo.
+
+** Patrón Compuesto
+Las partes del patrón compuesto son las siguientes:
+1. /Componente/. Será nuestra clase Nodo. Define una interfaz para todos los
+   elementos de la composición (el AST) e implementa un comportamiento
+   por omisión.
+2. /Compuesto/. Define el comportamiento específico para los nodos que
+   tienen que manejar hijos.
+3. /Hoja/. Representación de los elementos que no tienen hijos y definición del
+   comportamiento específico para estos objetos.
+4. /Cliente/. Manipula los objetos de la composición a través de la interfaz
+   Componente.
+
+El patrón compuesto ofrece una jerarquía de clases que van desde la más general
+hasta la más particular; entre más alejado de la raíz se encuentre la clase, tendrá un
+comportamiento más específico.
+Aunque es flexible para implementar comportamiento
+específico a cada elemento, ofrece una interfaz general al exterior, de tal modo que
+los objetos de las clases más particulares pueden tener el mismo comportamiento
+(los mismos métodos) que las otras clases.
+
+Es importante recalcar que el patrón compuesto tiene muchas otras aplicaciones.
+Pero en esta práctica fue adaptado al /AST/ y que con la palabra interfaz usada
+en el componente no hace referencia a una interfaz de Java (clase con todos
+los métodos abstractos, /interface/), sino a una plantilla de métodos que pueden
+ser solicitados a cualquier elemento de la composición. Ya que el componente (Nodo)
+no está en una interfaz, sino en una clase, sí es posible instanciar un objeto de
+esta clase Nodo.
+
+** Patrón Visitante
+  El patrón Visitante será la interfaz encargada de realizar tareas específicas sobre cada tipo de nodo.
+  En este proyecto sólo será la representación en cadena de cada nodo para imprimirlo.
+
+  El patrón Visitante está conformado por las siguientes clases:
+  1. *Visitante Abstracto*: define un método abstracto de visita
+     para cada uno de los elementos concretos.
+     #+BEGIN_EXAMPLE
+     public interface Visitante {
+         public void visita(Nodo n);
+         public void visita(HojaEntera h);
+         ...
+         public void visita(StmtNodo s);
+     }
+     #+END_EXAMPLE
+  2. *Visitante Concreto*: implementa la interfaz ~Visitante~
+     con las acciones que se desean realizar cuando se esté
+     visitando cada elemento concreto.
+     #+BEGIN_EXAMPLE
+     public class VisitantePrint implements Visitante {
+         public void visita(Nodo n){
+             System.out.print("Nodo Genérico");
+         }
+         public void visita(HojaEntera h){
+             System.out.print("Hoja Entera");
+             System.out.print("valor: " + h.valor);
+         }
+         ...
+         public void visita(StmtNodo s){
+             System.out.print("Nodo Sentencia");
+               // código para imprimir los hijos que
+               // pueda tener.
+         }
+     }
+     #+END_EXAMPLE
+
+  3. *Elemento*: Es la clase Nodo. Es decir, el objeto genérico
+     que se visita.
+     #+BEGIN_EXAMPLE
+     public class Nodo{
+       ...
+       public void acepta(Visitante v){
+           v.visita(this);
+       }
+     }
+     #+END_EXAMPLE
+  4. *Elemento Concreto*: Cada uno de los tipos específicos de nodos.
+     En cada una de las clases deberá haber un método que permita
+     la entrada del ~Visitante~.
+     #+BEGIN_EXAMPLE
+     public class HojoEntera{
+       ...
+       public void acepta(Visitante v){
+           v.visita(this);
+       }
+     }
+     #+END_EXAMPLE
+
+** Despacho dinámico
+   Veamos el siguiente ejemplo:
+   #+BEGIN_EXAMPLE
+   class Nodo{
+       public String getHijos(){
+           return "Método genérico de `getHijos()`";
+       }
+   }
+
+   class Compuesto extends Nodo{
+       public String getHijos(){
+           return "Tengo n hijos";
+       }
+   }
+
+   class Hoja extends Nodo{
+
+   }
+
+   class Prueba{
+       public static void main(){
+           Nodo h = new Hoja();
+	   Nodo c = new Compuesto();
+	   System.out.println(h.getHijos());
+	   System.out.println(c.getHijos());
+       }
+   }
+   #+END_EXAMPLE
+
+   Podemos observar en el ejemplo que tanto el objeto ~c~ y el objeto ~h~ en tiempo de compilación
+   tienen tipo ~Nodo~, pero al momento de ejecución, se hace el despacho dinámico, es decir,
+   se resuelve el tipo en tiempo de ejecución y se determina que ~h~ es tipo ~Hoja~, pero como
+   no hay una implementación propia del método ~getHijos()~, se ejecuta la que se definió
+   por omisión en la interfaz de la composición. En cambio para el nodo ~c~, que se creó con
+   el constructor de la clase ~Compuesto~, sí hay una implementación específica.
+
+** Valores semánticos
+En la versión actual del analizador sintáctico no hay manejo de
+valores semánticos para símbolos terminales o no terminales. Dado que
+lo que nos interesa crear son nodos e irlos relacionando unos con
+otros, necesitamos que los símbolos de la gramática tengan asociadas
+referencias a Nodos. Una manera de hacerlo, es provista por /byaccj/,
+mediante la opción de compilación /-Jsemantic=<SemanticValue>/ que
+reemplaza el tipo /ParserVal/ por lo que esté en /<SemanticValue>/. En
+nuestro caso, el tipo semántico que nos interesa es ~Nodo~.
+Eso quiere decir que los valores que sean pasados por el analizador
+léxico en el atributo /yylval/ del parser serán de tipo ~Nodo~.
+#+BEGIN_EXAMPLE
+$ byacc -Jsemantic=Nodo Parser.y
+#+END_EXAMPLE
+Cuando un átomo se forma, el analizador léxico sabe la categoría
+sintáctica a la que pertenece y el valor asociado a él.
+El analizador léxico ya regresa el átomo con el nombre de su categoría
+sintáctica, pero no se ha visto como pasar el valor. El analizador
+sintáctico cuenta con un atributo llamado ~yylval~ en el que guarda el
+valor del último átomo solicitado para posteriormente guardarlo en una
+pila. El analizador léxico será el encargado de ponerle valor a esa
+variable, que como mencionamos anteriormente siempre será de tipo
+~Nodo~.
+#+BEGIN_EXAMPLE
+//Flexer.flex
+{ENTERO}  { yyparser.yylval = new IntHoja(Integer.parseInt(yytext()));
+           return Parser.ENTERO; }
+#+END_EXAMPLE
+
+** Recursividad izquierda y derecha
+   En la práctica 2, notamos que la recursividad derecha implica asociatividad derecha y
+   la recursividad izquierda implica asociatividad izquierda, y en el momento de interpretar
+   una expresión aritmética el resultado puede ser diferente en cada uno de los casos.
+   También se observó que la pila crece más con la recursividad derecha porque
+   no se hacen las reducciones hasta el final.
+
+   Observemos las siguientes reglas de la gramática en su versión para /byaccj/ y con
+   recursividad izquierda y derecha:
+
+       #+BEGIN_EXAMPLE
+        1  stmt : aux0
+
+	2  aux0 : simple_stmt
+        3       | aux0 simple_stmt
+
+        4  simple_stmt : small_stmt NEWLINE
+
+        5  small_stmt : expr_stmt
+        6             | print_stmt
+       #+END_EXAMPLE
+   Recursividad derecha:
+       #+BEGIN_EXAMPLE
+        1  stmt : aux0
+
+        2  aux0 : simple_stmt
+        3       | simple_stmt aux0
+
+        4  simple_stmt : small_stmt NEWLINE
+
+        5  small_stmt : expr_stmt
+        6             | print_stmt
+       #+END_EXAMPLE
+
+   Pensemos que el archivo fuente es
+       #+BEGIN_EXAMPLE
+       print x
+       print y
+       z = 87 + y
+       print 'cadena'
+       #+END_EXAMPLE
+   Cada una de esas líneas de código serán eventualmente reducidas a un ~small_stmt~,
+   (un nodo para cada una de ellas) para su reducción con el ~simple_stmt~ no va a
+   ser necesario la creación de un nuevo
+   nodo, ya que el átomo ~NEWLINE~ no será integrado al árbol por que no proporciona
+   información necesaria para los siguiente análisis.
+   La meta es que al hacer la reducción de la regla 1, se tenga la referencia de la raíz
+   del árbol. La cuál será un nodo ~Compuesto~ (o alguna de las clases que hereden de
+   ~Compuesto~) con una lista de hijos y en ella vivan cada uno de los 4 nodos antes
+   mencionados. La diferencia sutil entre la manera en la que se construye el árbol en
+   la gramática con recursividad izquierda y la de derecha radica en el orden en el que
+   se van agregando los hijos. En la recursividad izquierda los hijos se van agregando en
+   el orden que se van encontrando ya que las reducciones se hacen inmediatamente,
+   en cambio en la recursividad derecha, los hijos conforme se van reconociendo se meten
+   a la pila y el último que se reconoció se agrega primero a la lista, entonces si no se
+   agregan con atención a la lista, el orden en el que se escribió el código fuente será
+   el inverso.
+
+
+* Ejercicios
+1. Construir las clases necesarias para construir el /AST/ según el
+   patrón Constructor y las necesidades de la gramática.
+2. Integrar al analizador léxico y sintáctico el código necesario
+   para que se pueda construir el /AST/ durante el reconocimiento
+   sintáctico y al fin de mismo se obtenga la raíz del árbol.
+3. Completar el Visitante para imprimir.
+
+* Nota
+El código que se incluye en el proyecto no es de uso obligatorio,
+es decir, pueden usar el analizador léxico y sintáctico que ya tienen.
+
+El único objetivo de incluir el código es ejemplificar conceptos.

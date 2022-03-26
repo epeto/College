@@ -1,0 +1,20 @@
+#lang plai
+
+;;Definición del tipo With Arithmetic Expresion
+(define-type WAE
+[num (n number?)]
+[add (lhs WAE?) (rhs WAE?)]
+[sub (lhs WAE?) (rhs WAE?)]
+[with (name symbol?) (named-expr WAE?) (body WAE?)]
+[id (name symbol?)])
+
+;;Definición del parser
+(define (parse sexp)
+(cond
+[(number? sexp) (num sexp)]
+[(symbol? sexp) (id sexp)]
+[(list? sexp)
+(case (first sexp)
+	[(+) (add (parse (second sexp)) (parse (third sexp)))]
+	[(-) (sub (parse (second sexp)) (parse (third sexp)))]
+	[(with) (with (first (second sexp)))])]))

@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath, amsbsy} % simbolitos
+\usepackage{multirow} % para tablas
+\usepackage{enumerate}
+\title{Práctica 2 \\ Organización y arquitectura de computadoras}
+\author{Peto Gutiérrez Emmanuel}
+\begin {document}
+\maketitle
+
+Explicación de cómo resolví los ejercicios:
+
+\section{Implicación}
+
+Considerando que la implicación es $P \rightarrow Q$, sabemos que cuando P es 0 el resultado va a ser 1. Por lo tanto, usé un transistor tipo P que deja pasar la corriente de 1 (usando "Power") cuando P es 0 y eso resuelve 2 casos. Para resolver los otros 2 (cuando I(P)=1) noté que el resultado es igual a I(Q), es decir, si I(Q)=0 la implicación es 0 y si I(Q)=1 la implicación es 1. Entonces usé el transistor tipo N para dejar pasar la corriente de Q cuando I(P)=1.
+
+\section{Primo}
+
+Se resolvió usando una tabla de verdad y luego reduciendo con un mapa de Karnaugh. El número es de la forma $X=X_{3}X_{2}X_{3}$ donde cada $X_{i}$ es un dígito.
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{$X_{3}$} & \textbf{$X_{2}$} & \textbf{$X_{1}$} & \textbf{P} \\ \hline
+0 & 0 & 0 & 0 \\ \hline
+0 & 0 & 1 & 0 \\ \hline
+0 & 1 & 0 & 1 \\ \hline
+0 & 1 & 1 & 1 \\ \hline
+1 & 0 & 0 & 0 \\ \hline
+1 & 0 & 1 & 1 \\ \hline
+1 & 1 & 0 & 0 \\ \hline
+1 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+$X_{1} \backslash X_{3}X_{2}$ & \textbf{00} & \textbf{01} & \textbf{11} & \textbf{10} \\ \hline
+\textbf{0} & 0 & 1 & 0 & 0 \\ \hline
+\textbf{1} & 0 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Obtenemos la función: $\overline{X_{3}}X_{2}+X_{2}X_{1}+X_{3}X_{1}$ con lo cual podemos hacer el circuito.
+
+\section{Menor o igual}
+
+Para hacer la igualdad solo verifiqué que cada dígito fuera igual con $x \leftrightarrow y$, que es equivalente a $(x \wedge y) \vee (\lnot x \wedge \lnot y)$.
+Para verificar que $X=X_{2}X_{1}$ es menor que $Y=Y_{2}Y_{1}$ se comprueba que: \\
+$X_{2} < Y_{2}$ o bien que $X_{2} = Y_{2}$ \& $X_{1} < Y_{1}$. Para eso usamos la equivalencia lógica:
+$p<q \equiv \lnot p \wedge q$.
+
+\section{Elevador}
+
+Supongamos que $X$ es la posición actual del elevador y $Y$ el piso al que se quiere ir. Para saber la dirección solo usamos la función menor o igual, definida anteriormente, donde 1 es arriba y 0 es abajo.
+
+Para saber cuántos pisos se moverá hacemos una función para sacar el valor absoluto de la diferencia entre $X$ y $Y$, es decir $|X-Y|$. Para ello hice todas las restas posibles y noté que se podía obtener cada dígito del resultado mediante un XOR a los dígitos de las entradas, excepto en los casos $X=10$ y $Y=01$ o viceversa. Para estas excepcions solo tengo que invertir un dígito y después aplicar el XOR. Es decir, si tenemos $X=01$ y $Y=10$ invierto el dígito más significativo de $Y$, entonces queda: $Y=00$. Si tenemos $X=10$ y $Y=01$ invierto el dígito más significativo de la $X$ y da $X=00$.
+
+\section{Preguntas}
+
+\begin{enumerate}[1.]
+	\item ¿Cuál es el procedimiento a seguir para desarrollar un circuito que resuelva un problema que involucre lógica computacional?
+	\begin{itemize}
+        \item Hacer una tabla de verdad con todos los posibles valores de entrada del problema.
+        \item En la columna que representa la función de conmutación colocar 1 donde necesitemos que la función de 1.
+        \item Obtener mintérminos multiplicando las variables en los renglones donde la función tiene 1. Si la variable tiene 0 en ese renglón, la negamos.
+        \item Sumar cada uno de los mintérminos para crear la función.
+        \item Si se puede, reducir el tamaño de la función usando mapas de Karnaugh o propiedades del álgebra booleana.
+	\end{itemize}
+	
+	\item Si una función de conmutación se evalúa a más ceros que unos ¿es conveniente usar mintérminos o maxtérminos? ¿En el caso de que evalúe a más ceros que unos?
+	\begin{itemize}
+		\item Si se tienen más ceros que unos es mejor usar maxtérminos, pues en la expresión de la función solo aparecerán los términos de los renglones que tienen 0.
+		\item Si se tienen más unos que ceros es más conveniente usar mintérminnos, además se tiene la posibilidad de reducir la expresión.
+	\end{itemize}
+	
+	\item Analizando el trabajo realizado, ¿cuáles son los inconvenientes de desarrollar circuitos de forma manual?
+	\begin{itemize}
+		 \item Si usamos tablas de verdad para crear un circuito con n variables, tendremos $2^{n}$ renglones, por lo que el problema crece exponencialmente.
+		 \item Se enciman los cables y eso puede provocar confusión.
+	\end{itemize}
+\end{enumerate}
+
+\end {document}

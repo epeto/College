@@ -1,0 +1,103 @@
+
+\documentclass{article}
+\usepackage[spanish]{babel} %Definir idioma español
+\usepackage[utf8]{inputenc} %Codificacion utf-8
+\usepackage{amssymb, amsmath, amsbsy, wasysym}
+\usepackage{multirow} % para tablas
+\usepackage{graphicx}
+\author{Emmanuel Peto Gutiérrez}
+\title{Tarea 2\\Razonamiento automatizado}
+\begin{document}
+\maketitle
+
+\begin{itemize}
+\item[1.] Demostrar la siguiente proposición:\\Sean $A$, $B$ fórmulas cualquiera y $x$ una variable que no aparece en $B$. Entonces $$A[x := B] \sim_{sat} (x \leftrightarrow B) \wedge A $$.
+
+\textbf{Solución:}
+
+$\bullet$ $\Rightarrow$) Supongamos que $A[x:=B]$ es satisfacible. Sea $\mathcal{I}_1$ un modelo para $A[x:=B]$. Se puede construir un modelo $\mathcal{I}_2$ para $(x \leftrightarrow B) \wedge A$ haciendo $\mathcal{I}_2 (x) = \mathcal{I}_1 (B)$, es decir, se asigna a $x$ el valor de la subfórmula $B$ bajo el estado $\mathcal{I}_1$. Para el resto de las variables $p$ de $A[x:=B]$ se les deja el valor que ya tenían, es decir, $\mathcal{I}_2 (p) = \mathcal{I}_1 (p)$. $\mathcal{I}_2 (x \leftrightarrow B) = 1$ porque $\mathcal{I}_2 (x) = \mathcal{I}_2 (B)$. $\mathcal{I}_2 (A) = 1$ porque $x$ toma el valor de $\mathcal{I}_1 (B)$ y se sabe que $\mathcal{I}_1 (A[x:=B]) = 1$. Así, $\mathcal{I}_2 ((x \leftrightarrow B) \wedge A) =1$.
+
+$\bullet$ $\Leftarrow$) Supongamos que $(x \leftrightarrow B) \wedge A$ es satisfacible. Sea $\mathcal{I}_1$ modelo de $(x \leftrightarrow B) \wedge A$. Como $\mathcal{I}_1$ es modelo de $(x \leftrightarrow B) \wedge A$, entonces $\mathcal{I}_1 (A) = 1$ y $\mathcal{I}_1 (x \leftrightarrow B) = 1$, lo que implica que $\mathcal{I}_1 (x) = \mathcal{I}_1 (B)$. Como $\mathcal{I}_1 (A) = 1$ entonces $\mathcal{I}_1 (A[x:=B]) = 1$ porque la subfórmula $B$ toma el valor de $\mathcal{I}_1 (x)$. Es decir, $\mathcal{I}_1 \models A[x:=B]$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item[2.] Mostrar que las reglas del algoritmo DPLL son correctas.
+
+\textbf{(a)} La regla \texttt{RCU} es correcta:\\Si $S$ es un conjunto de cláusulas y $S'$ el resultado de aplicar \texttt{RCU} a $S$, entonces $S \sim_{sat} S'$.
+
+\textbf{Solución:}
+
+$\bullet$ $\Rightarrow$) Supongamos que $S$ es satisfacible y sea $\ell$ una cláusula unitaria en $S$. Se sabe que, dado un conjunto de fórmulas $\Gamma$, con $\varphi \in \Gamma$ pasa lo siguiente: si $\Gamma$ es satisfacible entonces $\Gamma \backslash \{ \varphi \}$ es satisfacible. Esto significa que cualquier subconjunto $\Gamma' \subseteq \Gamma$ es satisfacible siempre que $\Gamma$ lo sea. Así, como $S$ es satisfacible, el conjunto $S' = S \backslash \{ C | \ell \in  C\}$ también lo es.
+
+Sea $S'' = \{ C \backslash \{ \ell^{c} \} | C \in S' \}$, es decir, $S''$ se obtiene eliminando la literal $\ell^{c}$ de todas las cláusulas de $S'$, y sea $\mathcal{I}$ un modelo de $S$. Como $\ell$ es una cláusula unitaria en $S$, $\mathcal{I} (\ell) = 1$, así que $\mathcal{I} (\ell^{c}) = 0$. Cualquier cláusula $C \in S$ es verdadera en el estado $\mathcal{I}$, entonces $\mathcal{I} (D \vee \ell^{c}) = 1$ para cualquier cláusula que tenga esta forma. Se sabe que $\mathcal{I} (\ell^{c}) = 0$, así que $\mathcal{I} (D)$ debe ser 1. En $S''$ se eliminaron todas literales $\ell^{c}$, pero por el resultado anterior se puede concluir que $\mathcal{I} (C') = 1$ para cada cláusula $C' \in S''$, así, $I$ es modelo de $S''$.
+
+$\bullet$ $\Rightarrow$) Sea $S$ un conjunto de cláusulas satisfacible y sean $\ell$ y $\ell^{c}$ literales que no figuran en $S$. Sea $\mathcal{I}_1$ un modelo de $S$. Para cualquier cláusula $C \in S$, $\mathcal{I}_1 (C)=1$, así que $\mathcal{I}_1 (C \vee F) = 1$ para cualquier fórmula $F$, sin importar el valor de $\mathcal{I}_1 (F)$. Se puede construir un conjunto $S'$ a partir de $S$ agregando $\ell^{c}$ a un número arbitrario de cláusulas en $S$, el cual, por la observación anterior, es satisfacible. Un modelo $\mathcal{I}_2$ para $S'$ se puede construir extendiendo $\mathcal{I}_1$ dando un valor a la variable de la literal $\ell$ para que $\mathcal{I}_2 (\ell) = 1$. Es evidente que $\mathcal{I}_2 \models S'$.
+
+Sea $U$ un conjunto de cláusulas donde cada una tiene la literal $\ell$, es decir, cada cláusula es de la forma $D \vee \ell$. Se puede construir un modelo $\mathcal{I}_3$ para $U$ tomando los mismos valores de $\mathcal{I}_2$ y asignandole un valor arbitrario a las variables nuevas de $U$. Como $\mathcal{I}_3 (\ell) = \mathcal{I}_2 (\ell) = 1$ y $\ell$ aparece en cada cláusula de $U$, entonces $\mathcal{I}_3$ es modelo de $U$. $\mathcal{I}_3 (S') = \mathcal{I}_2 (S') = 1$, así que $\mathcal{I}_3 \models S'$. Por lo tanto, el conjunto $S'' = S' \cup U$ es satisfacible e $\mathcal{I}_3$ es modelo de $S''$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{(b)} La regla \texttt{RPL} es correcta:\\Si $S$ es un conjunto de cláusulas y $S'$ el resultado de aplicar \texttt{RPL} a $S$, entonces $S \sim_{sat} S'$.
+
+\textbf{Solución:}
+
+$\bullet$ $\Rightarrow$) Sea $S$ un conjunto de cláusulas satisfacible que contiene una literal pura $\ell$. Sea $S' = S \backslash \{ C | \ell \in C$ \& $C \in S \}$. Es decir, $S'$ se construye eliminando de $S$ todas las cláusulas que contienen a $\ell$. Como $S' \subset S$ y $S$ es satisfacible, entonces $S'$ es satisfacible.
+
+$\bullet$ $\Leftarrow$) Sea $S$ un conjunto de cláusulas satisfacible, $\ell$ y $\ell^{c}$ literales complementarias que no figuran en $S$ y $U$ un conjunto de cláusulas en el cual cada cláusula contiene a $\ell$. Sea $\mathcal{I}_1$ un modelo de $S$. Se construye el estado $\mathcal{I}_2$ de la siguiente forma:
+
+- $\mathcal{I}_2 (p) = \mathcal{I}_1 (p)$ para cada variable $p$ en $S$. Esto es para que $\mathcal{I}_2 \models S$.\\
+- $\mathcal{I}_2 (\ell) = 1$. Si $\ell = x$ entonces $\mathcal{I}_2 (x) = 1$, y si $\ell = \neg x$, $\mathcal{I}_2(x) = 0$.\\
+- $\mathcal{I}_2 (q) = 1$ para cada variable $q$ en $U$ que no está en $S$ (funciona igual si se elige $\mathcal{I}_2 (q) = 0$).
+
+Como $\mathcal{I}_2 (\ell) = 1$ y $\ell$ está en todas las cláusulas de $U$, entonces $\mathcal{I}_2 \models U$. Por lo tanto $\mathcal{I}_2 \models S'=S \cup U$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{(c)} La regla \texttt{RD} es correcta:\\Si $S$ es un conjunto de cláusulas y $S_1$, $S_2$ son los conjuntos resultantes de aplicar \texttt{RD} a $S$, entonces $S$ es satisfacible si y solo si $S_1$ es satisfacible o $S_2$ es satisfacible.
+
+\textbf{Solución:}
+
+Sea $S$ un conjunto de cláusulas donde algunas tienen a $\ell$, otras tienen a $\ell^{c}$ (para cierta literal $\ell$) y otras no contienen a ninguna. Se definen los conjuntos $A$, $B$, $A'$, $B'$, $R$, $S_1$ y $S_2$ de la siguiente forma:
+
+-$A = \{ C | C \in S$ \& $\ell \in C \}$\\
+-$B = \{ C | C \in S$ \& $\ell^{c} \in C \}$\\
+-$R = \{ C | C \in S$ \& $\ell \not \in C$ \& $\ell^{c} \not \in C \}$\\
+-$A \cup B \cup R = S$\\
+-$A' = \{ C \backslash \ell | C \in A \}$\\
+-$B' = \{ C \backslash \ell^{c} | C \in B \}$\\
+-$S_1 = A' \cup R$\\
+-$S_2 = B' \cup R$
+
+$\bullet$ $\Rightarrow$) Supongamos que $S$ es satisfacible. Hay que demostrar que $S_1$ es satisfacible o $S_2$ es satisfacible. Como $R \subseteq S$, $R$ es satisfacible, así que solo hay que considerar los conjuntos $A'$ y $B'$.
+
+Sea $\mathcal{I}$ un modelo de $S$. Pueden ocurrir 2 casos: $\mathcal{I} (\ell) = 0$ o $\mathcal{I} (\ell^{c}) = 0$.
+
+Caso 1: $\mathcal{I} (\ell) = 0$. Cada cláusula $C$ de $A$ es verdad bajo $I$ porque $A \subseteq S$, y éstas tienen la forma $C=D \vee \ell$, pero como $\mathcal{I} (\ell) = 0$ tiene que ocurrir que $\mathcal{I} (D) = 1$. Así, $\mathcal{I} (C \backslash \ell) = 1$ para cada $(C \backslash \ell) \in A'$, y por lo tanto $\mathcal{I} \models A'$. Como $\mathcal{I} \models R$ y $\mathcal{I} \models A'$, entonces $I \models S_1 = A' \cup R$.
+
+Caso 2: $\mathcal{I} (\ell^{c}) = 0$. Usando un razonamiento similar al caso 1, se puede deducir que $\mathcal{I} \models B'$ y entonces $\mathcal{I} \models S_2 = B' \cup R$.
+
+Por lo tanto, para cualquier modelo $I$ de $S$ se cumple que $I \models S_1$ o $I \models S_2$.
+
+$\bullet$ $\Leftarrow$) Sean $S_1$ y $S_2$ los conjuntos construidos por \texttt{RD}, $S$ el conjunto original y $\ell$ la literal usada para la descomposición. Supongamos que $S_1$ es satisfacible o $S_2$ lo es.
+
+Caso 1: $S_1$ es satisfacible. Sea $\mathcal{I}_1$ un modelo de $S_1$, lo que significa que $\mathcal{I}_1 \models A'$ y $\mathcal{I}_1 \models R$. Se va a construir un estado $\mathcal{I}_2$ de la siguiente forma:
+
+- $\mathcal{I}_2 (\ell) = 0$\\
+- $\mathcal{I}_2 (p) = \mathcal{I}_1 (p)$ para cada variable $p \in S_1$\\
+- $\mathcal{I}_2 (q) = 1$ para cada variable $q \in B'$ que no está en $S_1$\\
+
+Para cada cláusula $C \in A'$ se sabe que $\mathcal{I}_2 (C) = 1$, así que $\mathcal{I}_2 (C \vee \ell) = 1$, y por lo tanto $\mathcal{I}_2 \models A$. Se sabe que $\mathcal{I}_2 (\ell^{c}) = 1$, así que $\mathcal{I}_2 (C \vee \ell^{c}) = 1$ para cualquier cláusula $C \in B'$, y por lo tanto $\mathcal{I}_2 \models B$.
+
+Se tiene que $\mathcal{I}_2 \models R$, $\mathcal{I}_2 \models A$ y $\mathcal{I}_2 \models B$. Por lo tanto $\mathcal{I}_2 \models S = A \cup B \cup R$.
+
+Caso 2: $S_2$ es satisfacible. Se puede usar un razonamiento análogo para demostrar que $S$ es satisfacible, pero tomando primero un modelo $\mathcal{I}_1$ de $S_2$ y haciendo $\mathcal{I}_2 (\ell^{c}) = 0$.
+
+Se puede concluir que si $S_1$ es satisfacble o $S_2$ es satisfacible, entonces $S$ es satisfacible.
+
+\end{itemize}
+
+\end{document}
+
+
+
+

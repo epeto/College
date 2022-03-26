@@ -1,0 +1,116 @@
+* Fecha de entrega
+4.12.2018
+* Descripción
+  La segunda parte en la tarea de un compilador es la síntesis
+  del lenguaje objetivo. Este proyecto será el responsable de
+  cumplir con esa tarea.
+  Nuestro lenguaje objetivo será ensablador para la arquitectura
+  MIPS, de la cual las características más importantes son:
+  - MIPS tiene arquitectura RISC.
+  - Tiene registros de 32-bits.
+  - Tiene 32 registros para enteros. Algunos son reservados para el
+    procesador.
+  - Tiene otros 32 registros de punto flotante.
+  - La mayoría de sus operaciones son de tres direcciones.
+    ~add $t0, $t1, $t2~ se traduce a ~$t0 := $t1 + $t2~.
+
+  La generación del código se realizará de manera ingenua, es decir
+  no es necesario aplicar ningún tipo de optimización. Los registros
+  sólo preservarán las datos mientras se esté operando con ellos.
+  Si se necesita preservar información se hará en memoria.
+
+  Para implementar la síntesis se creará un nuevo ~Visitante Concreto~.
+  Para facilitar la asignación de registros, se sugiere crear una
+  clase que abstraiga el manejo de los registros ~Registros~.
+
+ #+BEGIN_EXAMPLE
+  public class Registros{
+
+    int objetivoEntero;
+
+    // Todos los registros enteros disponibles
+    String[] E_registros = {"$t0", ... ,"$t9"};
+
+
+    public void setObjetivo(int o){
+        objetivoEntero = o % E_registros.length;
+    }
+
+    public void setObjetivo(String o){
+        int nvo_objetivo = Arrays.asList(E_registros).indexOf(o);
+        setObjetivo(nvo_objetivo);
+    }
+
+    public int getObjetivo(){
+        return objetivoEntero;
+    }
+
+    /* Regresa los n registos siguientes "disponibles" */
+    public String[] getNsiguientes(int n){
+        String[] siguientes = new String[n];
+
+        for(int i = 0; i < n; i++){
+            siguientes[i] = E_registros[(objetivoEntero + i) % E_registros.length];
+        }
+        return siguientes;
+    }
+
+ #+END_EXAMPLE
+
+  Esta clase provee básicamente las siguientes funciones:
+  * ~getObjetivo():~ Recupera el registro en el que se espera que sea guardado el resultado de la operación principal.
+  * ~getNSiguientes(int s):~ Recupera los ~s~ registros siguientes que pueden ser usados de manera auxiliar para llevar a cabo los cálculos.
+
+  El siguiente código es un ejemplo de implementación para la generación
+  de la operación de la resta:
+
+ #+BEGIN_EXAMPLE
+  public class VisitanteGenerador implements Visitante {
+    Registros reg = new Registros();
+
+    public void visit(DifNodo n){
+        Nodo hi = n.getPrimerHijo();
+        Nodo hd = n.getUltimoHijo();
+
+        String objetivo = reg.getObjetivo();
+        String[] siguientes = reg.getNsiguientes(2);
+
+        // Genero el código del subárbol izquiero
+        reg.setObjetivo(siguiente[0]);
+        hi.accept(this);
+
+        // Genero el código del subárbol derecho
+        reg.setObjetivo(siguiente[1]);
+        hd.accept(this);
+
+        String opcdode =  "sub";
+
+        System.out.println(opcode + " " + objetivo + ", " +
+                            siguientes[0] + ", " + siguientes[1]);
+    }
+  }
+ #+END_EXAMPLE
+
+
+* Ejercicios
+  1. Instalar Spim Version 8 o mayor, un simulador de MIPS.
+  2. Programar un nuevo Visitante Concreto que recorra el AST y genere el código correspondiente en ensablador MIPS.
+     El compilador debe soportar:
+     * Enteros, Booleanos y Cadenas.
+     * Identificadores y asignación.
+     * Ciclo While.
+     * Condicional If.
+     * Impresión
+     * Operaciones aritméticas (suma, resta, multiplicación, división entera y módulo).
+     * Operaciones de comparación.
+  3. Escribir un README con las instrucciones para compilar y probar el Compilador.
+
+* Punto extra
+  1. Crear un binario con nombre ~<cmd>~ para linux que, colocado en path, ejecute el
+     código de su compilador y regrese un archivo con extensión ~.asm~.
+     Especificar en el README las instrucciones para probar su comando.
+     Ejemplo:
+
+     ~$ <cmd> <archivo>.p~
+
+     ~$ ls <archivo>.asm~

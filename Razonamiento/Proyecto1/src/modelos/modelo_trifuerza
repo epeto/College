@@ -1,0 +1,39 @@
+sat
+(model 
+  (define-fun ac1 () Bool
+    true)
+  (define-fun be2 () Bool
+    false)
+  (define-fun de2 () Bool
+    false)
+  (define-fun ce1 () Bool
+    false)
+  (define-fun ab2 () Bool
+    false)
+  (define-fun ef1 () Bool
+    true)
+  (define-fun bc2 () Bool
+    true)
+  (define-fun ef2 () Bool
+    false)
+  (define-fun de1 () Bool
+    true)
+  (define-fun bd2 () Bool
+    true)
+  (define-fun ce2 () Bool
+    true)
+  (define-fun be1 () Bool
+    true)
+  (define-fun cf1 () Bool
+    true)
+  (define-fun ac2 () Bool
+    false)
+  (define-fun ab1 () Bool
+    true)
+  (define-fun bd1 () Bool
+    false)
+  (define-fun bc1 () Bool
+    false)
+  (define-fun cf2 () Bool
+    false)
+)

@@ -1,0 +1,1 @@
+# Algoritmos paralelos (parallel algorithms)

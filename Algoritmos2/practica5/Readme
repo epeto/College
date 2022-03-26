@@ -1,0 +1,11 @@
+Nombre: Emmanuel Peto Gutiérrez
+Cuenta: 414008117
+
+Para compilar y ejecutar: make
+Para ejecutar cuando ya está compilado: java -cp core.jar:. Principal
+
+Comentarios sobre el programa:
+- Los nodos no marcados se muestran de color azul claro, mientras que los marcados se muestran de color verde olivo.
+- Se usó una tabla hash para relacionar una llave con el nodo que lo contiene. Por lo que, si insertas una llave
+  que ya estaba en la cola, puede provocar anomalías. Por eso, la condición para que el heap funcione de manera correcta
+  es que todas las llaves sean diferentes.

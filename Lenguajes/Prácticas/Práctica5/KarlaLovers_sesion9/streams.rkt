@@ -1,0 +1,49 @@
+#lang plai
+
+#| Implementación de streams. Un stream es una lista posiblemente infinita, por ejemplo:
+   El stream de todos los números naturales '(0 1 2 3 4 ...).
+   El stream de todos los números de fibonacci '(1 2 3 5 6 8 13 ...).
+   El stream de todos los números primos '(2 3 5 7 11 13). |#
+
+;; Predicado auxiliar para definir estructuras con elemento de cualquier tipo.
+;; any? : any -> boolean
+(define (any? a) #t)
+
+;; Predicado auxiliar para veriricar que un procedimiento tiene aridad 0 (es un thunk). Para su 
+;; implementación usamos el procedimiento "procedure-arity" de Racket.
+;; zero-arity?: procedure -> boolean
+
+;; El tipo de dato stream que define listas infinitas.
+;; Tiene dos constructores.
+;; ·(sempty) Para representar el stream vacío.
+;; ·(scons h t) Para definir el primer elemento de la sucesión y el patrón que permite generar el 
+;;  resto.
+(define-type Stream
+   [sempty]
+   [scons (head any?) (tail procedure?)])
+
+;; Función que obtiene la cabeza del stream.
+;; shead: Stream -> any
+(define (shead s)
+   (scons-head s))
+
+;; Función que obtiene el resto del stream.
+;; stail: Stream -> Stream
+(define (stail s)
+   (match s
+      [(sempty) (error 'stail "Stream vacío")]
+      [(scons h t) (t)]))
+
+;; Función que regresa los primeros n elementos del stream en forma de lista.
+;; stake: Stream integer -> (listof any)
+(define (stake s n)
+   (match n
+      [0 empty]
+      [else (cons (shead s) (stake (stail s) (- n 1)))]))
+
+;; Función que dada una función f y un stream, aplica f a cada elemento del stream.
+;; smap: procedure Stream -> Stream
+(define (smap f s)
+   (match s
+      [(sempty) s]
+      [(scons h t) (scons (f h) (thunk (smap f (t))))]))

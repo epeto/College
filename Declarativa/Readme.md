@@ -1,0 +1,1 @@
+# Programación declarativa (Declarative programming)

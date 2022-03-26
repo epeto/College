@@ -1,0 +1,109 @@
+EBNF
+
+<file_input>: (SALTO | <stmt>)*
+
+<stmt>: <simple_stmt> | <compound_stmt>
+<simple_stmt>: <small_stmt> SALTO
+<small_stmt>: <expr_stmt> | <print_stmt>
+<expr_stmt>: <test> ["=" <test>]
+<print_stmt>: "print" <test>
+
+<compound_stmt>: <if_stmt>
+               | <while_stmt>
+<if_stmt>: "if" <test> ":" <suite> ["else" ":" <suite>]
+<while_stmt>: "while" <test> ":" <suite>
+<suite>: <simple_stmt> | SALTO INDENTA <stmt> {<stmt>} DEINDENTA
+
+<test>: <or_test>
+<or_test>: <and_test> {"or" <and_test>}
+<and_test>: <not_test> {"and" <not_test>}
+<not_test>: "not" <not_test> | <comparison>
+<comparison>: <expr> {<comp_op> <expr>}
+<comp_op>: "<"|">"|"=="|">="|"<="|"!="
+<expr>: <term> {("+"|"-") <term>}
+<term>: <factor> {("*"|"/"|"%"|"//") <factor>}
+<factor>: ("+"|"-") <factor> | <power>
+<power>: <atom> ["**" <factor>]
+<atom>: IDENTIFICADOR | ENTERO | CADENA
+    | REAL | BOOLEANO | "(" <test> ")"
+
+
+-------------------------------------------------------------------------------------------------------------
+
+<file_input> ::= <file_input> SALTO
+             |   <file_input> <stmt>
+             |   SALTO
+             |   <stmt>
+             |   epsilon
+
+<stmt> ::= <simple_stmt>
+       | <compound_stmt>
+
+<simple_stmt> ::= <small_stmt> SALTO
+
+<small_stmt> ::= <expr_stmt> 
+             | <print_stmt>
+
+<expr_stmt> ::= <test> "=" <test>
+            |   <test>
+
+<print_stmt> := "print" <test>
+
+<compound_stmt> := <if_stmt>
+                | <while_stmt>
+
+<if_stmt> := "if" <test> ":" <suite> "else" ":" <suite>
+          |  "if" <test> ":" <suite>
+
+<while_stmt> := "while" <test> ":" <suite>
+
+<suite> ::= <simple_stmt>
+        | SALTO INDENTA <stmt2> DEINDENTA
+
+<stmt2> ::= <stmt2> <stmt>
+        |   <stmt>
+
+<test>: <or_test>
+
+<or_test> ::= <or_test> "or" <and_test>
+          |   <and_test>
+
+<and_test> ::= <and_test> "and" <not_test>
+           |   <not_test>
+
+<not_test> ::= "not" <not_test>
+           | <comparison>
+
+<comparison> ::= <expr> <comp_op> <comparison>
+             |   <expr>
+
+<comp_op> ::= "<"
+          |   ">"
+          |   "=="
+          |   ">="
+          |   "<="
+          |   "!="
+
+<expr> ::= <expr> "+" <term>
+         | <expr> "-" <term>
+         | <term>
+
+<term> ::= <term> "*" <factor>
+         | <term> "/" <factor>
+         | <term> "%" <factor>
+         | <term> "//" <factor>
+         | <factor>
+
+<factor> ::= "+" <factor>
+           | "-" <factor>
+           | <power>
+
+<power> ::= <atom> "**" <factor>
+          | <atom>
+
+<atom> ::= IDENTIFICADOR
+         | ENTERO 
+         | CADENA
+         | REAL 
+         | BOOLEANO 
+         | "(" <test> ")"

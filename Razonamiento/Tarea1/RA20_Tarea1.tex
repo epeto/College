@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[spanish]{babel} %Definir idioma español
+\usepackage[utf8]{inputenc} %Codificacion utf-8
+\usepackage{amssymb, amsmath, amsbsy, wasysym}
+\usepackage{multirow} % para tablas
+\usepackage{graphicx}
+\author{Emmanuel Peto Gutiérrez}
+\title{Tarea 1}
+\begin{document}
+\maketitle
+
+El programa está hecho en \textit{Haskell}, así que para compilar y ejecutar se teclea lo siguiente en la carpeta src:
+
+\begin{itemize}
+\item ghc Saturacion.hs
+\item ./Saturacion
+\end{itemize}
+
+\section{Forma normal conjuntiva}
+
+Para pasar cualquier fórmula a forma normal conjuntiva primero se eliminaron equivalencias ($\leftrightarrow$) e implicaciones ($\rightarrow$). Luego se colocaron las negaciones solamente en atómicas para pasar a forma normal negativa. Finalmente de FNN se transformó a FNC usando reglas de distribución.
+
+\section{Conjunto de cláusulas}
+
+Para transformar una fórmula en FNC a su forma de conjuntos, primero se hizo una función que dada una cláusula devuelve una lista de sus literales. Después se usó esta función para hacer una lista de cláusulas.
+
+\section{Saturación}
+
+Se realizó una función que encuentra literales complementarias entre dos cláusulas; si no tienen literales complementarias devuelve \textbf{Nothing}. La función \textit{resBin} realiza resolución binaria de dos cláusulas dada una literal \textbf{l}. Después se hizo una función que hace resolución binaria de todas las cláusulas en un conjunto y la une con el conjunto original. Finalmente se aplica el algoritmo de saturación de forma recursiva y este se detiene si el conjunto de cláusulas no cambia o aparece el conjunto vacío en algún punto.
+
+\section{Saturación con simplificación}
+
+Para simplificar un conjunto de cláusulas se realizan los siguientes pasos:
+
+\begin{itemize}
+\item Se eliminan las literales repetidas de cada cláusula por la propiedad de idempotencia.
+\item Se eliminan las cláusulas que son tautología. Es decir, las que tienen literales complementarias o que tienen \textbf{T}.
+\item Se eliminan las cláusulas que son subsumidas por otras. Para esto se creó una función que determina si una cláusula C es superconjunto de algún elmento en un conjunto de cláusulas Cl; si lo es se elimina C.
+\end{itemize}
+
+Una vez que se tiene la función de simplificación, se concatena la simplificación con la resolución y se aplica el algoritmo de saturación.
+
+\end{document}

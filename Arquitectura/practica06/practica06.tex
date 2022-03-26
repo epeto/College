@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath, amsbsy} % simbolitos
+\usepackage{multirow} % para tablas
+\usepackage{enumerate}
+\title{Práctica 6 \\ Organización y arquitectura de computadoras}
+\author{Peto Gutiérrez Emmanuel}
+\begin {document}
+\maketitle
+
+\begin{enumerate}[1.]
+\item \textbf{¿Qué utilidad tiene el registro \$fp ? ¿Se puede prescindir de el?}
+	\begin{itemize}
+	\item Sirve para delimitar el tamaño del marco y no salirnos de este espacio para guardar cosas en la pila.
+	\item Es posible no utilizar este registro si recordamos cuánto espacio reservamos en la pila.
+	\end{itemize}
+
+\item \textbf{Definimos como subrutina nodo a una subrutina que realiza una o más invocaciones a otras subrutinas y como subrutina hoja a una subrutina que no realiza llamadas a otras subrutinas.}
+	\begin{enumerate}[a)]
+	\item ¿Cuál es el tamaño mínimo que puede tener un marco para una subrutina nodo? ¿Bajo qué condiciones ocurre? \\
+	
+	El tamaño mínimo son 24 bytes; 16 para los argumentos, 4 para el \$fp y 4 para el \$ra. Ocurre si no se van a modificar registros \$sn y si no se van a utilizar registros \$tn después de la llamada.
+	\\
+	\item ¿Cuál es el tamaño mínimo que puede tener un marco para una subrutina hoja? ¿Bajo qué condiciones ocurre? \\
+	
+	El tamaño mínimo son 4 bytes, para guardar el \$fp del marco anterior. Ocurre si no se van a modificar los registros \$sn ni los registros de argumentos \$an.
+	\end{enumerate}
+\item \textbf{Considera el siguiente pseudocódigo. En donde a[5] es un arreglo de tamaño 5 y "..."  son otras acciones que realiza la rutina, además, supón que en la funcion B se realizan cambios en los registros \$s0, \$s1 y \$s2 . Bosqueja la pila de marcos después del preámbulo de la funcion B.}
+
+funcion\_A(a,b)
+
+\hspace{0.5cm}a[5]
+
+\hspace{0.5cm}...
+
+\hspace{0.5cm}funcion\_B(a,b,arreglo[0],arreglo[1],arreglo[2])
+
+\hspace{0.5cm}...
+\end{enumerate}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|c|}
+\hline
+arreglo[4] \\ \hline
+arreglo[3] \\ \hline
+arreglo[2] \\ \hline
+arreglo[1] \\ \hline
+arreglo[0] \\ \hline
+\$fp \\ \hline
+\$ra \\ \hline
+0 \\ \hline
+0 \\ \hline
+\$a0 \\ \hline
+\$a1 \\
+\hline \hline
+\$s2 \\ \hline
+\$s1 \\ \hline
+\$s0 \\ \hline
+argumento 5 \\ \hline
+\$a3 \\ \hline
+\$a2 \\ \hline
+\$a1 \\ \hline
+\$a0 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+\end {document}

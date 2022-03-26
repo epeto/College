@@ -1,0 +1,135 @@
+<project name="ED" default="run" basedir=".">
+    <description>
+        Build file for the Data Structures Class.
+    </description>
+    
+    <fail message="Ant 1.10.4+ is required!">
+        <condition>
+            <not>
+                <antversion atleast="1.10.4"/>
+            </not>
+        </condition>
+    </fail>
+
+    <!-- set global properties for this build -->
+    <property name="src" location="src" relative="yes" />
+    <property name="libs" location="libs" relative="yes" />
+    <property name="tests" location="test" relative="yes" />
+    <property name="build" location="build" relative="yes" />
+    <property name="build.test" location="build.test" relative="yes" />
+    <property name="docs" location="docs" relative="yes" />
+    <property name="tests.report" location="reportes" relative="yes" />
+    <property name="dist" location="dist" relative="yes" />
+    <property name="mainClass" value="ed.algebra.Algebra" relative="yes" />
+
+    <!-- Define the classpath which includes the libs -->
+    <path id="project.class.path">
+        <pathelement location="${libs}/junit-platform-console-standalone-1.8.1.jar" />
+        <pathelement location="${build}" />
+        <pathelement location="${build.test}" />
+    </path>
+
+    <target name="init">
+        <!-- Create the time stamp -->
+        <tstamp />
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build}" />
+    </target>
+
+    <target name="compile" depends="init" description="compiles the source code">
+        <!-- Compile the java code from ${src} into ${build} -->
+        <javac includeantruntime="false" srcdir="${src}" destdir="${build}" />
+    </target>
+
+    <target name="compiletests" depends="compile" description="compile JUnit tests">
+        <!-- Create the build directory structure for the tests -->
+        <mkdir dir="${build.test}" />
+        <!-- Compile the tests -->
+        <!--<javac includeantruntime="false" srcdir="${tests}" destdir="${build.test}">
+            <classpath refid="project.class.path" />
+        </javac>-->
+        <javac destdir="${build.test}" classpathref="project.class.path" srcdir="${tests}" includeantruntime="false"/>
+    </target>
+
+    <target name="test.junit.launcher" depends="compiletests" description="executes JUnit tests ">
+        <mkdir dir="${tests.report}" />
+        <junitlauncher>
+            <!-- include the JUnit Jupiter and Platform related libraries
+            required to run the tests -->
+            <classpath refid="project.class.path"/>
+            <testclasses outputdir="${tests.report}">
+                <fileset dir="${build.test}">
+                    <include name="**/*Test.class"/>
+                </fileset>
+                <listener type="legacy-brief" sendSysOut="true"/>
+                <listener type="legacy-xml" sendSysErr="true" sendSysOut="true"/>
+            </testclasses>
+        </junitlauncher>
+    </target>
+    
+    <!-- Console launcher -->
+    <target name="test.console.launcher" depends="compiletests">
+        <java classpathref="project.class.path" classname="org.junit.platform.console.ConsoleLauncher" fork="true" failonerror="true">
+            <arg value="--scan-classpath"/>
+            <arg line="--reports-dir ${tests.report}"/>
+        </java>
+        <junitreport todir="${tests.report}">
+            <fileset dir="${tests.report}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="build/test-report/html"/>
+        </junitreport>
+    </target>
+    
+    <target name="test" depends="test.junit.launcher, test.console.launcher" />
+
+    <target name="dist" depends="compile" description="generates the distribution">
+        <!-- Create the distribution directory -->
+        <mkdir dir="${dist}/lib" />
+        <jar jarfile="${dist}/lib/${ant.project.name}.jar">
+            <manifest>
+                <attribute name="Class-Path" value="${ant.project.name}.jar" />
+                <attribute name="Main-Class" value="${mainClass}" />
+                <!--attribute name="Main-Class" value="icc.Prueba"/-->
+            </manifest>
+            <fileset dir="build" includes="**/*.class" />
+            <fileset dir="src" includes="**/*.properties" />
+        </jar>
+    </target>
+
+    <target name="run" depends="dist">
+        <java classname="${mainClass}" fork="true">
+            <classpath>
+                <pathelement path="build" />
+            </classpath>
+        </java>
+    </target>
+
+    <target name="clean" description="cleans up">
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}" />
+        <delete dir="${dist}" />
+        <delete dir="${build.test}" />
+        <delete dir="${tests.report}" />
+        <delete dir="${docs}" />
+        <delete>
+            <fileset dir="." includes="**/*~" defaultexcludes="false" />
+        </delete>
+        <delete>
+            <fileset dir="." includes="**/*.dat" defaultexcludes="false" />
+        </delete>
+    </target>
+
+    <target name="docs" description="generates javadoc">
+        <javadoc destdir="${docs}/${tests}" sourcepath="${src}" author="true" version="true" windowtitle="${ant.project.name}" classpathref="project.class.path">
+            <fileset dir="${tests}" defaultexcludes="yes">
+                <include name="**/*.java" />
+            </fileset>
+        </javadoc>
+        <javadoc destdir="${docs}/${src}" author="true" version="true" windowtitle="${ant.project.name}">
+            <fileset dir="${src}" defaultexcludes="yes">
+                <include name="**/*.java" />
+            </fileset>
+        </javadoc>
+    </target>
+</project>

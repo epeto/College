@@ -1,0 +1,19 @@
+Testsuite: ed.aplicaciones.calculadora.TestCalculadora
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+------------- Standard Output ---------------
+Prefija: [2.0/2.0]	Passed.
+Infija a postfija: [3.0/3.0]	Passed.
+Infija: Sufija: [2, 5, *, 32, 4, /, +, 8, -, 3, +]
+Sufija: [15, 96, *, 17, %]
+Sufija: [3, 5, +, 10, *, 14, -, 2, *, 18, 3, -, 5, /, -]
+[3.0/3.0]	Passed.
+Postfija: [2.0/2.0]	Passed.
+==============================
+Test: 4/4    Points: 10.0/10.0  -->  10.0
+==============================
+------------- ---------------- ---------------
+
+Testcase: testPrefija took 0.017 sec
+Testcase: testInfijaAPostfija took 0.004 sec
+Testcase: testInfija took 0.003 sec
+Testcase: testPostfija took 0 sec

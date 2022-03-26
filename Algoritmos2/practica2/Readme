@@ -1,0 +1,17 @@
+
+Nombre: Emmanuel Peto Gutiérrez
+Cuenta: 414008117
+
+Se encuentra el flujo máximo en una red mediante el algoritmo de etiquetamiento.
+
+Para compilar y ejecutar debes estar en la carpeta src. Debes tener instalado java y python 3.
+
+En la red original las aristas rojas son las que están saturadas. En la residual se pintan de azul los nodos que pertenecen al conjunto S (los alcanzables por 's').
+
+Compilar: make
+Ejecutar: python3 run.py
+
+Al ejecutar el programa te pide el nombre del ejemplar. Aquí debes poner, por ejemplo, red1.csv
+
+PD: notarás que la práctica 2 se parece a la 1. Esto es porque, cuando empecé a hacer la 1, no sabía que nos dejarían el algoritmo de etiquetamiento como práctica 2 y no se me ocurrió un algoritmo lo suficientemente genérico para encontrar trayectorias de 's' a 't'.
+

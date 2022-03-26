@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite aborted="0" failures="0" id="0" name="MonomioTest" package="ed.algebra" skipped="0" tests="1" time="0.099" timestamp="2021-12-23T03:50:58">
+    <properties>
+      <property name="ant.library.dir" value="/snap/ant/22/lib" />
+      <property name="ant.file.type" value="file" />
+      <property name="java.specification.version" value="16" />
+      <property name="ant.project.name" value="ED" />
+      <property name="sun.jnu.encoding" value="UTF-8" />
+      <property name="dist" value="dist" />
+      <property name="java.class.path" value="/snap/ant/22/lib/ant-launcher.jar:/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/libs/ant-junitlauncher-1.10.7.jar:/snap/ant/22/lib/ant-antlr.jar:/snap/ant/22/lib/ant-apache-bcel.jar:/snap/ant/22/lib/ant-apache-bsf.jar:/snap/ant/22/lib/ant-apache-log4j.jar:/snap/ant/22/lib/ant-apache-oro.jar:/snap/ant/22/lib/ant-apache-regexp.jar:/snap/ant/22/lib/ant-apache-resolver.jar:/snap/ant/22/lib/ant-apache-xalan2.jar:/snap/ant/22/lib/ant-commons-logging.jar:/snap/ant/22/lib/ant-commons-net.jar:/snap/ant/22/lib/ant-imageio.jar:/snap/ant/22/lib/ant-jai.jar:/snap/ant/22/lib/ant-javamail.jar:/snap/ant/22/lib/ant-jdepend.jar:/snap/ant/22/lib/ant-jmf.jar:/snap/ant/22/lib/ant-jsch.jar:/snap/ant/22/lib/ant-junit.jar:/snap/ant/22/lib/ant-junit4.jar:/snap/ant/22/lib/ant-junitlauncher.jar:/snap/ant/22/lib/ant-launcher.jar:/snap/ant/22/lib/ant-netrexx.jar:/snap/ant/22/lib/ant-swing.jar:/snap/ant/22/lib/ant-testutil.jar:/snap/ant/22/lib/ant-xz.jar:/snap/ant/22/lib/ant.jar" />
+      <property name="java.vm.vendor" value="Private Build" />
+      <property name="sun.arch.data.model" value="64" />
+      <property name="docs" value="docs" />
+      <property name="java.vendor.url" value="Unknown" />
+      <property name="os.name" value="Linux" />
+      <property name="java.vm.specification.version" value="16" />
+      <property name="DSTAMP" value="20211222" />
+      <property name="user.country" value="MX" />
+      <property name="sun.java.launcher" value="SUN_STANDARD" />
+      <property name="sun.boot.library.path" value="/usr/lib/jvm/java-16-openjdk-amd64/lib" />
+      <property name="sun.java.command" value="org.apache.tools.ant.launch.Launcher -cp  -lib libs/ant-junitlauncher-1.10.7.jar test" />
+      <property name="jdk.debug" value="release" />
+      <property name="sun.cpu.endian" value="little" />
+      <property name="user.home" value="/home/emmanuel" />
+      <property name="user.language" value="es" />
+      <property name="java.specification.vendor" value="Oracle Corporation" />
+      <property name="tests.report" value="reportes" />
+      <property name="java.version.date" value="2021-04-20" />
+      <property name="java.home" value="/usr/lib/jvm/java-16-openjdk-amd64" />
+      <property name="file.separator" value="/" />
+      <property name="basedir" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2" />
+      <property name="java.vm.compressedOopsMode" value="Zero based" />
+      <property name="line.separator" value=" " />
+      <property name="ant.java.version" value="16" />
+      <property name="tests" value="test" />
+      <property name="java.specification.name" value="Java Platform API Specification" />
+      <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+      <property name="libs" value="libs" />
+      <property name="TSTAMP" value="2150" />
+      <property name="mainClass" value="ed.algebra.Algebra" />
+      <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+      <property name="java.runtime.version" value="16.0.1+9-Ubuntu-120.04" />
+      <property name="user.name" value="emmanuel" />
+      <property name="ant.file" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/build.xml" />
+      <property name="ant.file.type.ED" value="file" />
+      <property name="path.separator" value=":" />
+      <property name="os.version" value="5.11.0-43-generic" />
+      <property name="build.test" value="build.test" />
+      <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+      <property name="file.encoding" value="UTF-8" />
+      <property name="ant.project.invoked-targets" value="test" />
+      <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+      <property name="ant.core.lib" value="/snap/ant/22/lib/ant.jar" />
+      <property name="java.vendor.url.bug" value="Unknown" />
+      <property name="java.io.tmpdir" value="/tmp" />
+      <property name="java.version" value="16.0.1" />
+      <property name="TODAY" value="December 22 2021" />
+      <property name="src" value="src" />
+      <property name="user.dir" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2" />
+      <property name="os.arch" value="amd64" />
+      <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+      <property name="ant.home" value="/snap/ant/22" />
+      <property name="ant.version" value="Apache Ant(TM) version 1.10.12 compiled on October 13 2021" />
+      <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib" />
+      <property name="java.vendor" value="Private Build" />
+      <property name="java.vm.info" value="mixed mode, sharing" />
+      <property name="build" value="build" />
+      <property name="java.vm.version" value="16.0.1+9-Ubuntu-120.04" />
+      <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+      <property name="java.class.version" value="60.0" />
+      <property name="ant.file.ED" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/build.xml" />
+      <property name="ant.project.default-target" value="run" />
+    </properties>
+    <testcase classname="ed.algebra.MonomioTest" name="sumaMonomios()" time="0.027" />
+    <system-out>Suma monomios: 5.2x^2 + 1.2x^2 = 6.4x^2
+</system-out>
+  </testsuite>
+  <testsuite aborted="0" failures="0" id="1" name="PolinomioTest" package="ed.algebra" skipped="0" tests="4" time="0.014" timestamp="2021-12-23T03:50:58">
+    <properties>
+      <property name="ant.library.dir" value="/snap/ant/22/lib" />
+      <property name="ant.file.type" value="file" />
+      <property name="java.specification.version" value="16" />
+      <property name="ant.project.name" value="ED" />
+      <property name="sun.jnu.encoding" value="UTF-8" />
+      <property name="dist" value="dist" />
+      <property name="java.class.path" value="/snap/ant/22/lib/ant-launcher.jar:/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/libs/ant-junitlauncher-1.10.7.jar:/snap/ant/22/lib/ant-antlr.jar:/snap/ant/22/lib/ant-apache-bcel.jar:/snap/ant/22/lib/ant-apache-bsf.jar:/snap/ant/22/lib/ant-apache-log4j.jar:/snap/ant/22/lib/ant-apache-oro.jar:/snap/ant/22/lib/ant-apache-regexp.jar:/snap/ant/22/lib/ant-apache-resolver.jar:/snap/ant/22/lib/ant-apache-xalan2.jar:/snap/ant/22/lib/ant-commons-logging.jar:/snap/ant/22/lib/ant-commons-net.jar:/snap/ant/22/lib/ant-imageio.jar:/snap/ant/22/lib/ant-jai.jar:/snap/ant/22/lib/ant-javamail.jar:/snap/ant/22/lib/ant-jdepend.jar:/snap/ant/22/lib/ant-jmf.jar:/snap/ant/22/lib/ant-jsch.jar:/snap/ant/22/lib/ant-junit.jar:/snap/ant/22/lib/ant-junit4.jar:/snap/ant/22/lib/ant-junitlauncher.jar:/snap/ant/22/lib/ant-launcher.jar:/snap/ant/22/lib/ant-netrexx.jar:/snap/ant/22/lib/ant-swing.jar:/snap/ant/22/lib/ant-testutil.jar:/snap/ant/22/lib/ant-xz.jar:/snap/ant/22/lib/ant.jar" />
+      <property name="java.vm.vendor" value="Private Build" />
+      <property name="sun.arch.data.model" value="64" />
+      <property name="docs" value="docs" />
+      <property name="java.vendor.url" value="Unknown" />
+      <property name="os.name" value="Linux" />
+      <property name="java.vm.specification.version" value="16" />
+      <property name="DSTAMP" value="20211222" />
+      <property name="user.country" value="MX" />
+      <property name="sun.java.launcher" value="SUN_STANDARD" />
+      <property name="sun.boot.library.path" value="/usr/lib/jvm/java-16-openjdk-amd64/lib" />
+      <property name="sun.java.command" value="org.apache.tools.ant.launch.Launcher -cp  -lib libs/ant-junitlauncher-1.10.7.jar test" />
+      <property name="jdk.debug" value="release" />
+      <property name="sun.cpu.endian" value="little" />
+      <property name="user.home" value="/home/emmanuel" />
+      <property name="user.language" value="es" />
+      <property name="java.specification.vendor" value="Oracle Corporation" />
+      <property name="tests.report" value="reportes" />
+      <property name="java.version.date" value="2021-04-20" />
+      <property name="java.home" value="/usr/lib/jvm/java-16-openjdk-amd64" />
+      <property name="file.separator" value="/" />
+      <property name="basedir" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2" />
+      <property name="java.vm.compressedOopsMode" value="Zero based" />
+      <property name="line.separator" value=" " />
+      <property name="ant.java.version" value="16" />
+      <property name="tests" value="test" />
+      <property name="java.specification.name" value="Java Platform API Specification" />
+      <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+      <property name="libs" value="libs" />
+      <property name="TSTAMP" value="2150" />
+      <property name="mainClass" value="ed.algebra.Algebra" />
+      <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+      <property name="java.runtime.version" value="16.0.1+9-Ubuntu-120.04" />
+      <property name="user.name" value="emmanuel" />
+      <property name="ant.file" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/build.xml" />
+      <property name="ant.file.type.ED" value="file" />
+      <property name="path.separator" value=":" />
+      <property name="os.version" value="5.11.0-43-generic" />
+      <property name="build.test" value="build.test" />
+      <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+      <property name="file.encoding" value="UTF-8" />
+      <property name="ant.project.invoked-targets" value="test" />
+      <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+      <property name="ant.core.lib" value="/snap/ant/22/lib/ant.jar" />
+      <property name="java.vendor.url.bug" value="Unknown" />
+      <property name="java.io.tmpdir" value="/tmp" />
+      <property name="java.version" value="16.0.1" />
+      <property name="TODAY" value="December 22 2021" />
+      <property name="src" value="src" />
+      <property name="user.dir" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2" />
+      <property name="os.arch" value="amd64" />
+      <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+      <property name="ant.home" value="/snap/ant/22" />
+      <property name="ant.version" value="Apache Ant(TM) version 1.10.12 compiled on October 13 2021" />
+      <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib" />
+      <property name="java.vendor" value="Private Build" />
+      <property name="java.vm.info" value="mixed mode, sharing" />
+      <property name="build" value="build" />
+      <property name="java.vm.version" value="16.0.1+9-Ubuntu-120.04" />
+      <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+      <property name="java.class.version" value="60.0" />
+      <property name="ant.file.ED" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/build.xml" />
+      <property name="ant.project.default-target" value="run" />
+    </properties>
+    <testcase classname="ed.algebra.PolinomioTest" name="multiplicaPolinomios1()" time="0.005" />
+    <testcase classname="ed.algebra.PolinomioTest" name="sumaPolinomios2()" time="0.001" />
+    <testcase classname="ed.algebra.PolinomioTest" name="multiplicaPolinomios2()" time="0.001" />
+    <testcase classname="ed.algebra.PolinomioTest" name="sumaPolinomios1()" time="0.001" />
+    <system-out>Multiplicación 1:
+1.0 + 2.0x + 3.0x^2 + 4.0x^3
++
+5.0x^2 + 6.0x^3 + 7.0x^4 + 8.0x^8 + 9.0x^11
+=
+5.0x^2 + 16.0x^3 + 34.0x^4 + 52.0x^5 + 45.0x^6 + 28.0x^7 + 8.0x^8 + 16.0x^9 + 24.0x^10 + 41.0x^11 + 18.0x^12 + 27.0x^13 + 36.0x^14
+Multiplicación 2:
+5.0x -1.0x^2
++
+-1.0 + 1.0x
+=
+-5.0x + 6.0x^2 -1.0x^3
+Suma 1:
+1.0 + 2.0x + 3.0x^2 + 4.0x^3
++
+5.0x^2 + 6.0x^3 + 7.0x^4 + 8.0x^8 + 9.0x^11
+=
+1.0 + 2.0x + 8.0x^2 + 10.0x^3 + 7.0x^4 + 8.0x^8 + 9.0x^11
+Suma 2:
+5.0x -1.0x^2
++
+-1.0 + 1.0x
+=
+-1.0 + 6.0x -1.0x^2
+</system-out>
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="KLVL-WXX9" id="2" name="JUnit Jupiter" package="" skipped="0" tests="5" time="0.064" timestamp="2021-12-22T21:50:58">
+    <properties>
+      <property name="file.encoding" value="UTF-8" />
+
+      <property name="file.separator" value="/" />
+
+      <property name="java.class.path" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/libs/junit-platform-console-standalone-1.8.1.jar:/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/build:/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/build.test" />
+
+      <property name="java.class.version" value="60.0" />
+
+      <property name="java.home" value="/usr/lib/jvm/java-16-openjdk-amd64" />
+
+      <property name="java.io.tmpdir" value="/tmp" />
+
+      <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib" />
+
+      <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+
+      <property name="java.runtime.version" value="16.0.1+9-Ubuntu-120.04" />
+
+      <property name="java.specification.name" value="Java Platform API Specification" />
+
+      <property name="java.specification.vendor" value="Oracle Corporation" />
+
+      <property name="java.specification.version" value="16" />
+
+      <property name="java.vendor" value="Private Build" />
+
+      <property name="java.vendor.url" value="Unknown" />
+
+      <property name="java.vendor.url.bug" value="Unknown" />
+
+      <property name="java.version" value="16.0.1" />
+
+      <property name="java.version.date" value="2021-04-20" />
+
+      <property name="java.vm.compressedOopsMode" value="Zero based" />
+
+      <property name="java.vm.info" value="mixed mode, sharing" />
+
+      <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+
+      <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+      <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+      <property name="java.vm.specification.version" value="16" />
+
+      <property name="java.vm.vendor" value="Private Build" />
+
+      <property name="java.vm.version" value="16.0.1+9-Ubuntu-120.04" />
+
+      <property name="jdk.debug" value="release" />
+
+      <property name="line.separator" value=" " />
+
+      <property name="os.arch" value="amd64" />
+
+      <property name="os.name" value="Linux" />
+
+      <property name="os.version" value="5.11.0-43-generic" />
+
+      <property name="path.separator" value=":" />
+
+      <property name="sun.arch.data.model" value="64" />
+
+      <property name="sun.boot.library.path" value="/usr/lib/jvm/java-16-openjdk-amd64/lib" />
+
+      <property name="sun.cpu.endian" value="little" />
+
+      <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+      <property name="sun.java.command" value="org.junit.platform.console.ConsoleLauncher --scan-classpath --reports-dir reportes" />
+
+      <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+      <property name="sun.jnu.encoding" value="UTF-8" />
+
+      <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+      <property name="user.country" value="MX" />
+
+      <property name="user.dir" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2" />
+
+      <property name="user.home" value="/home/emmanuel" />
+
+      <property name="user.language" value="es" />
+
+      <property name="user.name" value="emmanuel" />
+
+      <property name="user.timezone" value="America/Mexico_City" />
+
+    </properties>
+
+    <testcase classname="ed.algebra.PolinomioTest" name="multiplicaPolinomios1()" time="0.004">
+      <system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:ed.algebra.PolinomioTest]/[method:multiplicaPolinomios1()]
+display-name: multiplicaPolinomios1()
+]]></system-out>
+
+    </testcase>
+
+    <testcase classname="ed.algebra.PolinomioTest" name="sumaPolinomios2()" time="0">
+      <system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:ed.algebra.PolinomioTest]/[method:sumaPolinomios2()]
+display-name: sumaPolinomios2()
+]]></system-out>
+
+    </testcase>
+
+    <testcase classname="ed.algebra.MonomioTest" name="sumaMonomios()" time="0.024">
+      <system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:ed.algebra.MonomioTest]/[method:sumaMonomios()]
+display-name: sumaMonomios()
+]]></system-out>
+
+    </testcase>
+
+    <testcase classname="ed.algebra.PolinomioTest" name="multiplicaPolinomios2()" time="0.001">
+      <system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:ed.algebra.PolinomioTest]/[method:multiplicaPolinomios2()]
+display-name: multiplicaPolinomios2()
+]]></system-out>
+
+    </testcase>
+
+    <testcase classname="ed.algebra.PolinomioTest" name="sumaPolinomios1()" time="0.001">
+      <system-out><![CDATA[
+unique-id: [engine:junit-jupiter]/[class:ed.algebra.PolinomioTest]/[method:sumaPolinomios1()]
+display-name: sumaPolinomios1()
+]]></system-out>
+
+    </testcase>
+
+    <system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="KLVL-WXX9" id="3" name="JUnit Vintage" package="" skipped="0" tests="0" time="0" timestamp="2021-12-22T21:50:58">
+    <properties>
+      <property name="file.encoding" value="UTF-8" />
+
+      <property name="file.separator" value="/" />
+
+      <property name="java.class.path" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/libs/junit-platform-console-standalone-1.8.1.jar:/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/build:/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2/build.test" />
+
+      <property name="java.class.version" value="60.0" />
+
+      <property name="java.home" value="/usr/lib/jvm/java-16-openjdk-amd64" />
+
+      <property name="java.io.tmpdir" value="/tmp" />
+
+      <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib" />
+
+      <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+
+      <property name="java.runtime.version" value="16.0.1+9-Ubuntu-120.04" />
+
+      <property name="java.specification.name" value="Java Platform API Specification" />
+
+      <property name="java.specification.vendor" value="Oracle Corporation" />
+
+      <property name="java.specification.version" value="16" />
+
+      <property name="java.vendor" value="Private Build" />
+
+      <property name="java.vendor.url" value="Unknown" />
+
+      <property name="java.vendor.url.bug" value="Unknown" />
+
+      <property name="java.version" value="16.0.1" />
+
+      <property name="java.version.date" value="2021-04-20" />
+
+      <property name="java.vm.compressedOopsMode" value="Zero based" />
+
+      <property name="java.vm.info" value="mixed mode, sharing" />
+
+      <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+
+      <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+      <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+      <property name="java.vm.specification.version" value="16" />
+
+      <property name="java.vm.vendor" value="Private Build" />
+
+      <property name="java.vm.version" value="16.0.1+9-Ubuntu-120.04" />
+
+      <property name="jdk.debug" value="release" />
+
+      <property name="line.separator" value=" " />
+
+      <property name="os.arch" value="amd64" />
+
+      <property name="os.name" value="Linux" />
+
+      <property name="os.version" value="5.11.0-43-generic" />
+
+      <property name="path.separator" value=":" />
+
+      <property name="sun.arch.data.model" value="64" />
+
+      <property name="sun.boot.library.path" value="/usr/lib/jvm/java-16-openjdk-amd64/lib" />
+
+      <property name="sun.cpu.endian" value="little" />
+
+      <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+      <property name="sun.java.command" value="org.junit.platform.console.ConsoleLauncher --scan-classpath --reports-dir reportes" />
+
+      <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+      <property name="sun.jnu.encoding" value="UTF-8" />
+
+      <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+      <property name="user.country" value="MX" />
+
+      <property name="user.dir" value="/home/emmanuel/Documentos/Carrera/ED/Practicas/Proyecto2" />
+
+      <property name="user.home" value="/home/emmanuel" />
+
+      <property name="user.language" value="es" />
+
+      <property name="user.name" value="emmanuel" />
+
+      <property name="user.timezone" value="America/Mexico_City" />
+
+    </properties>
+
+    <system-out><![CDATA[
+unique-id: [engine:junit-vintage]
+display-name: JUnit Vintage
+]]></system-out>
+
+  </testsuite>
+</testsuites>

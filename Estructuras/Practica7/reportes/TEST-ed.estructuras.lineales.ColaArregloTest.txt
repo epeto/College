@@ -1,0 +1,167 @@
+Testsuite: ed.estructuras.lineales.ColaArregloTest
+Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.096 sec
+------------- Standard Output ---------------
+atiendeContainsTest: Prueba que la cola no contenga elementos borrados con atiende
+[1.0/1.0]	Passed.
+atiendeMiraTest: Prueba que mira y atiende devuelvan el mismo valor
+[1.0/1.0]	Passed.
+atiendeEmptyTest: Revisa que se devuelva null cuando se invoca atiende y no hay elementos
+[1.0/1.0]	Passed.
+FIFOTest: Revisa que la cola sea una estructura FIFO
+[1.0/1.0]	Passed.
+formaContainsTest: Revisa si la cola contiene los elementos insertados por forma
+[1.0/1.0]	Passed.
+formaSizeTest: Revisa que la cola mantenga la cantidad correcta y no vacía de elementos tras insertar con forma
+[1.0/1.0]	Passed.
+atiendeSizeTest: Revisa que la cantidad de elementos tras invocar atiende sean consistente
+[1.0/1.0]	Passed.
+equalsItselfTest: Revisa la igualdad con equals de una colección con si misma
+[1.0/1.0]	Passed.
+toGenericArrayNullPTest: Revisa que toArray genérico lance NullPointerException si el parámetro es null
+[1.0/1.0]	Passed.
+iteratorContainsTest: Revisa que los elementos devueltos por el iterador sean los mismos que los insertados, no necesariamente en el mismo orden
+[1.0/1.0]	Passed.
+equalsNullTest: Revisa la desigualdad con equals de una colección con null
+[1.0/1.0]	Passed.
+toObjectArrayContainsTest: Revisa que el orden de los elementos devueltos por toArray sea el mismo que el del iterador
+[1.0/1.0]	Passed.
+toGenericArrayZeroSizeTest: Revisa que el número de elementos de toArray genérico sea el mismo al de la colección cuando el arreglo pasado es de menor longitud
+[1.0/1.0]	Passed.
+containsAllItselfTest: Revisa que containsAll devuelva verdadero cuando el parámetro es la colección misma
+[1.0/1.0]	Passed.
+emptyTest: Revisa que la colección está vacía tras ser inicializada
+[1.0/1.0]	Passed.
+zeroSizeTest: Revisa que al inicializar la colección la cantidad de elementos es cero
+[1.0/1.0]	Passed.
+toGenericArrayNullFillTest: Revisa que toArray genérico devuelva elementos null cuando la longitud del arreglo es mayor al número de elementos en la colección
+[1.0/1.0]	Passed.
+addAllNullPointerTest: Revisa que se lance NullPointerException si el parámetro es null en addAll
+[1.0/1.0]	Passed.
+removeUnsupportedTest: Revise que remove lance UnsupportedOperationException si remove no se permite
+[1.0/1.0]	Passed.
+containsAllInitTest: Revisa que dos colecciones vacías tengan los mismos elementos con containsAll
+[1.0/1.0]	Passed.
+toObjectArrayEmptyTest: Revisa que el número de elementos de toArray sea cero si la colección es vacía
+[1.0/1.0]	Passed.
+containsAllTest: Revisa que dos colecciones con los mismos elementos contengan todos los elementos de la otra colección con containsAll
+[1.0/1.0]	Passed.
+addAllIllegalArgumentTest: Revisa que se lance IllegalArgumentException si el parámetro es la misma colección en add
+[1.0/1.0]	Passed.
+toGenericArraySizeTest: Revisa que el número de elementos devueltos por toArray genérico sea el mismo que el del iterador
+[1.0/1.0]	Passed.
+clearInitTest: Revisa que una colección nueva sea igual a una colección que invoco clear
+[1.0/1.0]	Passed.
+toGenericArrayEmptyTest: Revisa que toArray genérico devuelva elementos null cuando la colección está vacía
+[1.0/1.0]	Passed.
+iteratorInitTest: Revisa que el iterador no devuelva ningún elemento en una colección vacía
+[1.0/1.0]	Passed.
+addSizeTest: Revisa que la colección mantenga la cantidad correcta y no vacía de elementos tras insertar con add
+[1.0/1.0]	Passed.
+addContainsTest: Revisa si la colección contiene los elementos insertados por add
+[2.0/2.0]	Passed.
+removeAllUnsupportedTest: Revise que removeAll lance UnsupportedOperationException si removeAll no se permite
+[1.0/1.0]	Passed.
+iteratorRemoveUnsupportedTest: Revise que remove de iterator lance UnsupportedOperationException si remove de iterator no se permite
+[1.0/1.0]	Passed.
+clearSizeTest: Revisa que la cantidad de elementos sea 0 y la colección este vacía tras invocar clear
+[1.0/1.0]	Passed.
+equalsTest: Revisa la igualdad con equals para el orden y cantidad de elementos para dos colecciones no vacías equivalentes
+[1.0/1.0]	Passed.
+iteratorSizeTest: Revisa que el número de elementos devueltos por el iterador sea el mismo al número de elementos en la colección
+[1.0/1.0]	Passed.
+equalsObjectTest: Revisa la desigualdad con equals de una colección con algo que no es una colección
+[1.0/1.0]	Passed.
+clearContainsTest: Revisa que la colección no contenga ningún elemento borrado por clear
+[1.0/1.0]	Passed.
+iteratorNoElementExceptionTest: Revisa que el iterador lance NoSuchElementException cuando no tiene elemento
+[1.0/1.0]	Passed.
+constructorIllegalNoSizeTest: Revisa que se lance IllegalArgumentException si el parámetro arreglo en el constructor tiene longitud != 0
+[1.0/1.0]	Passed.
+constructorIllegalWithSizeTest: Revisa que se lance IllegalArgumentException si el parámetro arreglo en el constructor tiene longitud != 0
+[1.0/1.0]	Passed.
+addAllContainsTest: Revisa que la colección contenga todos los elementos insertados por addAll
+[2.0/2.0]	Passed.
+addAllSizeTest: Revisa si la colección contiene la cantidad de elementos insertados por addAll
+[1.0/1.0]	Passed.
+toGenericArrayContainsTest: Revisa que el orden de los elementos devueltos por toArray genérico sea el mismo que el del iterador
+[1.0/1.0]	Passed.
+containsAllButOneTest: Revisa la desigualdad a través de containsAll entre dos colección que difieren por un elemento
+[1.0/1.0]	Passed.
+retainAllUnsupportedTest: Revise que retainAll lance UnsupportedOperationException si retainAll no se permite
+[1.0/1.0]	Passed.
+toObjectArraySizeTest: Revisa que el número de elementos devueltos por toArray sea el mismo que el del iterador
+[1.0/1.0]	Passed.
+================================================================================
+ Insercion (Aciertos: 5.0/5.0)                               Puntaje: 20.0/20.0
+================================================================================
+ Borrado (Aciertos: 8.0/8.0)                                 Puntaje: 20.0/20.0
+================================================================================
+ Busqueda (Aciertos: 5.0/5.0)                                Puntaje: 30.0/30.0
+================================================================================
+ *All (Aciertos: 11.0/11.0)                                  Puntaje: 15.0/15.0
+================================================================================
+ Otros (Aciertos: 18.0/18.0)                                 Puntaje: 15.0/15.0
+================================================================================
+ Puntaje Total:                                                     100.0/100.0
+================================================================================
+------------- ---------------- ---------------
+
+Testcase: atiendeContainsTest took 0.018 sec
+Testcase: atiendeMiraTest took 0.001 sec
+Testcase: atiendeEmptyTest took 0 sec
+Testcase: FIFOTest took 0.001 sec
+Testcase: formaContainsTest took 0.001 sec
+Testcase: formaSizeTest took 0 sec
+Testcase: atiendeSizeTest took 0.001 sec
+Testcase: equalsItselfTest took 0 sec
+Testcase: toGenericArrayNullPTest took 0 sec
+Testcase: removeAllEmptyTest took 0 sec
+Testcase: iteratorContainsTest took 0.001 sec
+Testcase: equalsNullTest took 0.001 sec
+Testcase: removeAllItselfTest took 0.001 sec
+Testcase: toObjectArrayContainsTest took 0.001 sec
+Testcase: toGenericArrayZeroSizeTest took 0.001 sec
+Testcase: containsAllItselfTest took 0.001 sec
+Testcase: emptyTest took 0.001 sec
+Testcase: zeroSizeTest took 0.001 sec
+Testcase: retainAllEmptyTest took 0 sec
+Testcase: removeAllSizeTest took 0 sec
+Testcase: toGenericArrayNullFillTest took 0.001 sec
+Testcase: addAllNullPointerTest took 0.001 sec
+Testcase: retainAllNullPointerTest took 0 sec
+Testcase: removeUnsupportedTest took 0 sec
+Testcase: containsAllInitTest took 0 sec
+Testcase: toObjectArrayEmptyTest took 0 sec
+Testcase: retainAllItselfTest took 0 sec
+Testcase: containsAllTest took 0.001 sec
+Testcase: addAllIllegalArgumentTest took 0.001 sec
+Testcase: removeSizeTest took 0.001 sec
+Testcase: toGenericArraySizeTest took 0 sec
+Testcase: clearInitTest took 0 sec
+Testcase: retainAllContainsTest took 0.001 sec
+Testcase: toGenericArrayEmptyTest took 0.001 sec
+Testcase: iteratorInitTest took 0.001 sec
+Testcase: addSizeTest took 0 sec
+Testcase: addContainsTest took 0 sec
+Testcase: removeAllUnsupportedTest took 0 sec
+Testcase: iteratorRemoveUnsupportedTest took 0.001 sec
+Testcase: clearSizeTest took 0 sec
+Testcase: equalsTest took 0 sec
+Testcase: iteratorSizeTest took 0 sec
+Testcase: equalsObjectTest took 0.001 sec
+Testcase: removeContainsTest took 0 sec
+Testcase: clearContainsTest took 0.001 sec
+Testcase: removeEmptyTest took 0 sec
+Testcase: iteratorNoElementExceptionTest took 0 sec
+Testcase: constructorIllegalNoSizeTest took 0 sec
+Testcase: removeAllContainsTest took 0 sec
+Testcase: removeAllNullPointerTest took 0 sec
+Testcase: retainAllDontContainsTest took 0.001 sec
+Testcase: constructorIllegalWithSizeTest took 0 sec
+Testcase: addAllContainsTest took 0 sec
+Testcase: addAllSizeTest took 0 sec
+Testcase: toGenericArrayContainsTest took 0.001 sec
+Testcase: containsAllButOneTest took 0.001 sec
+Testcase: iteratorRemoveNoNextTest took 0 sec
+Testcase: retainAllUnsupportedTest took 0.001 sec
+Testcase: toObjectArraySizeTest took 0 sec

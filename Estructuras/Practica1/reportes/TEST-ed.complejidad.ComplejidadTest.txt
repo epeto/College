@@ -1,0 +1,33 @@
+Testsuite: ed.complejidad.ComplejidadTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+------------- Standard Output ---------------
+[0.0/0.0]
+fibonacciIt2: [1.0/1.0]	Passed.
+fibonacciRec: [2.0/2.0]	Passed.
+fibonacciIt: [2.0/2.0]	Passed.
+tPascalRec2: [1.0/1.0]	Passed.
+Cálculo fibonacci valor invalido: [0.5/0.5]	Passed.
+tPascalIt: [1, 3, 6, 10, 5, 1][1, 3, 3, 1][2.0/2.0]	Passed.
+tPascalIt2: [1, 5, 15, 35, 70, 56, 28, 8, 1][1.0/1.0]	Passed.
+tPascalRec: [2.0/2.0]	Passed.
+fibonacciRec2: [1.0/1.0]	Passed.
+Cálculo fibonacci valor invalido2: [0.5/0.5]	Passed.
+Cálculo pascal valor invalido2: [0.5/0.5]	Passed.
+Cálculo pascal valor invalido: [0.5/0.5]	Passed.
+==============================
+Test: 12/12    Points: 14.0/14.0  -->  10.0
+==============================
+------------- ---------------- ---------------
+
+Testcase: testFibonacciIt2 took 0.011 sec
+Testcase: testFibonacciRec took 0 sec
+Testcase: testFibonacciIt took 0 sec
+Testcase: testTPascalRec2 took 0 sec
+Testcase: testFibItInvalido took 0.001 sec
+Testcase: testTPascalIt took 0.006 sec
+Testcase: testTPascalIt2 took 0 sec
+Testcase: testTPascalRec took 0 sec
+Testcase: testFibonacciRec2 took 0 sec
+Testcase: testFibRecInvalido took 0 sec
+Testcase: testPascalRecInvalido took 0.001 sec
+Testcase: testPascalInvalido took 0 sec

@@ -1,0 +1,13 @@
+-1238
+0
+98
+--Este es un comentario de una línea en haskell
+{- Este es un
+comentario
+multilínea en
+haskell -}
+x
+x1
+perro
+x3y
+z_4

@@ -1,0 +1,24 @@
+Testsuite: ed.ordenamientos.MergeSorterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+------------- Standard Output ---------------
+Prueba ordenar arreglo [3, 5, 7, 9, 1, 2, 4, 6]
+	resultado >> [1, 2, 3, 4, 5, 6, 7, 9]
+Prueba ordenar arreglo [20, 45, 37, 19, 1, 25]
+	resultado >> [1, 19, 20, 25, 37, 45]
+Prueba ordenar arreglo [1, 2, 3, 4, 5]
+	resultado >> [1, 2, 3, 4, 5]
+Prueba ordenar arreglo [5, 4, 3, 2, 1]
+	resultado >> [1, 2, 3, 4, 5]
+Prueba ordenar arreglo [4, 3, 5, 2, 3, 4]
+	resultado >> [2, 3, 3, 4, 4, 5]
+Prueba ordenar arreglo [d, e, c, a, b]
+	resultado >> [a, b, c, d, e]
+Prueba ordenar arreglo [juan, pedro, hugo, paco, luis]
+	resultado >> [hugo, juan, luis, paco, pedro]
+==============================
+Calificacion automatica: 10.0
+==============================
+------------- ---------------- ---------------
+
+Testcase: pruebaOrdenarInt took 0.003 sec
+Testcase: pruebaOrdenarString took 0 sec

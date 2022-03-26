@@ -1,0 +1,68 @@
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath, amsbsy}
+\usepackage{graphicx}
+\title{Suma de Riemann\\Algoritmos paralelos}
+\author{Peto Gutiérrez Emmanuel}
+\begin{document}
+\maketitle
+
+Se tiene la función $f(x) = 100 - (x-10)^4 + 50(x-10)^2 - 8x$. Se calculará su forma expandida, expandiendo los binomios $-(x-10)^4$ y $50(x-10)$.
+
+\begin{itemize}
+\item $-(x-10)^4 = -x^4 + 40x^3 - 600x^2 + 4000x - 10000$
+\item $50(x-10)^2 = 50x^2 - 1000x + 5000$
+\end{itemize}
+
+Sustituyendo los binomios expandidos en $f(x)$ se obtiene
+
+\[f(x) = 100 - x^4 + 40x^3 - 600x^2 + 4000x - 10000 + 50x^2 - 1000x + 5000 - 8x\]
+\[f(x) = -x^4 + 40x^3 -550x^2 + 2992x - 4900\]
+
+Considere las siguientes propiedades de integración:
+\begin{itemize}
+\item $\int cf(x) = c \int f(x)$
+\item $\int (f(x) + g(x)) = \int f(x) + \int g(x)$
+\item $\int x^n = \frac{x^{n+1}}{n+1}$
+\end{itemize}
+
+Se calcula la integral indefinida de $f(x)$.
+
+$$\int f(x) = -\frac{x^5}{5} + 10x^4 - \frac{550}{3}x^3 + 1496x^2 - 4900x = g(x)$$
+
+La integral definida es $g(17) - g(3)$.
+
+\begin{itemize}
+\item $g(17) = -\frac{17^5}{5} + 10(17)^4 - \frac{550}{3}(17)^3 + 1496(17)^2 - 4900(17) =$ -434.067
+
+\item $g(3) = -\frac{3^5}{5} + 10(3)^4 - \frac{550}{3}(3)^3 + 1496(3)^2 - 4900(3) =$ -5424.6
+
+\item $g(17) - g(3) =$ -434.067 + 5424.6 = 4990.533
+\end{itemize}
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+$n$ & Valor calculado & Valor real & Error relativo \\ \hline \hline
+ 1 & 4297.937 & 4990.533 & 0.13878 \\ \hline
+ 5 & 4986.816 & 4990.533 & 7.448$\times 10^{-4}$ \\ \hline
+ 10 & 4997.435 & 4990.533 & 1.383$\times 10^{-3}$ \\ \hline
+ 25 & 4995.400 & 4990.533 & 9.752$\times 10^{-4}$ \\ \hline
+ 50 & 4993.318 & 4990.533 & 5.581$\times 10^{-4}$ \\ \hline
+ 75 & 4992.467 & 4990.533 & 3.875$\times 10^{-4}$ \\ \hline
+ 99 & 4992.027 & 4990.533 & 2.993$\times 10^{-4}$ \\ \hline
+ 25000 & 4990.539 & 4990.533 & 1.202$\times 10^{-6}$ \\ \hline
+\end{tabular}
+\caption{Valores calculados por la suma de Riemann.}
+\end{center}
+\label{table:1}
+\end{table}
+
+Entre los números de 1 a 99, el número óptimo de hilos\footnote{Es decir, el que tiene el error relativo más pequeño.} es 99. Entre mayor sea el número de hilos más particiones se realizan, por eso se incluye el resultado con 25,000 hilos que coincide con el resultado real hasta las primeras dos cifras decimales.
+
+\end{document}
+

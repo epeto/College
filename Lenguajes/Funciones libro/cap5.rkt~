@@ -1,0 +1,9 @@
+#lang plai
+
+;Este capítulo habla de postergar la substitución al poner las variables que
+;ya se definieron en un repositorio (que después llamaremos ambiente).
+
+;Esta es la definición del repositorio que en realidad es una lista ligada de variables con su valor.
+(define-type DefrdSub
+	[mtSub] ;Lista vacía
+	[aSub (name symbol?) (value number?) (ds DefrdSub?)]) ;Nombre de la variable seguida de su valor, seguida de una lista.

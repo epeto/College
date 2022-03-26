@@ -1,0 +1,65 @@
+
+\documentclass{article}
+\usepackage[spanish]{babel} %Definir idioma español
+\usepackage[utf8]{inputenc} %Codificacion utf-8
+\usepackage{amssymb, amsmath, amsbsy, wasysym}
+\usepackage{multirow} % para tablas
+\usepackage{graphicx}
+\author{Emmanuel Peto Gutiérrez}
+\title{Tarea 3\\Razonamiento automatizado}
+\begin{document}
+\maketitle
+
+Para ejecutar el programa se debe ir a la carpeta src/Problema (donde Problema puede ser: DPLL, Refutacion o
+ Saturation) y con el comando \textit{make} se compila y ejecuta cada programa. Después de haber compilado se
+ puede ejecutar otra vez con ./$<$nombre\_del\_programa$>$.
+
+En un archivo \textit{input} se encuentra la entrada a los programas. La entrada debe tener el siguiente formato:
+\begin{itemize}
+\item Las variables deben estar formadas por un solo caracter alfabético.
+\item Colocar paréntesis a cada subfórmula: $(A <operador> B)$. Por ejemplo, la fórmula $p \vee q \vee r$ no es reconocida por el parser, debe ser $p \vee (q \vee r)$ o $(p \vee q) \vee r$.
+\item Utilizar los caracteres unicode para operadores: $\wedge$, $\vee$, $\rightarrow$ y $\Leftrightarrow$.
+\item Si se va a usar un conjunto de fórmulas debe empezar con [ y terminar con ]. Las fórmulas deben estar separadas por comas y se pueden utilizar espacios entre las comas.
+\item Separar cada entrada con un salto de línea.
+\end{itemize}
+
+\section{Saturación}
+
+Se encuentra en la carpeta \textbf{Saturation} y el archivo principal es \textbf{Saturacion.hs}. La resolución original de la tarea 1 se encuentra en la función \textit{resOriginal}. La resolución unitaria se define en la función \textit{resUnitaria} y se aplica solamente si alguna de las cláusulas es unitaria. La resolución positiva se define en la función \textit{resPositiva} y se aplica solamente si todas las literales de alguna de las cláusulas son positivas. La función donde se aplica alguno de los tres tipos de resolución se llama \textit{res3} y se decide con un número entero: 2 para resolución positiva, 3 para resolución unitaria y cualquier número diferente de 2 y 3 para resolución original.
+
+\section{Modelos con DPLL}
+
+Está en la carpeta \textbf{DPLL} y el archivo principal es \textbf{Davis\_Putman.hs}.
+
+\subsection{Regla de cláusula unitaria}
+
+Dado un conjunto de cláusulas, primero se intenta de encontrar una cláusula unitaria con \textit{findCU}. El resultado es \texttt{Maybe Clausula} porque un conjunto puede no tener cláusula unitaria, así que devolvería \texttt{Nothing}. Si el conjunto tiene cláusula unitaria se aplica propagación unitaria con una literal $l$ en la función \textit{reglaCU}.
+
+\subsection{Regla de literal pura}
+
+Se intenta encontrar una literal pura con \textit{findLP}. Si el resultado es \texttt{Just lp} se aplica la regla de literal pura con la función \textit{reglaLP}.
+
+\subsection{Regla de descomposición}
+
+Si un conjunto de cláusulas no tiene cláusula unitaria ni literal pura, se aplica la regla de descomposición. Primero se obtiene la literal más frecuente en el conjunto de cláusulas con la función \textit{literalFrecuente}, la cual es una heurística de selección para hacer el algoritmo DPLL más eficiente. Después de obtener la literal más frecuente se aplica la función \textit{reglaD}.
+
+
+\subsection{Modelos}
+
+Un estado (una asignación de valores a las variables) está determinado por un conjunto de variables. Si $est$ es el estado y $F$ la fórmula, el valor de cada $x \in F$ está definido así: $\mathcal{I} (x) = 1$ si $x \in est$ y $\mathcal{I} (x) = 0$ si $x \not \in est$.
+
+La búsqueda de los modelos del algoritmo DPLL se encuentra con la función \textit{dpllCola}. En cada llamada recursiva se carga el argumento \textit{cola}, que es una cola de literales y van a determinar el modelo para el conjunto de cláusulas que recibe la función. Cada vez que se aplica una regla se agrega una literal a la cola. Si se llega a un conjunto vacío entonces la cola será un modelo y será el resultado de la función. Si se llega a un conjunto que contiene a la cláusula vacía significa que la cola no es modelo y se devuelve una lista vacía.
+
+Una vez que se tiene una lista de las literales que son parte del modelo se eliminan las que son negativas; esto es porque un modelo solo tiene literales positivas (variables).
+
+\section{Árbol DPLL}
+
+Para generar una refutación en forma de árbol se crea un tipo de dato: \texttt{ArbolDPLL}. Esta vez, en vez de devolver un conjunto de modelos, el algoritmo devuelve un árbol DPLL. En cada nodo se guarda la siguiente información: el tipo de regla a aplicar, el conjunto de cláusulas al que se le aplica la regla y la literal usada en la regla. También se tiene un hijo si se aplica RCU o RLP, y dos hijos si se aplica la regla RD.
+
+Las hojas del árbol pueden ser de dos tipos: $\checkmark$ si se llega a un conjunto vacío o $\times$ si se llega a un conjunto con una cláusula vacía. Si la fórmula es insatisfacible, el árbol DPLL debe tener $\times$ en todas sus hojas.
+
+\end{document}
+
+
+
+

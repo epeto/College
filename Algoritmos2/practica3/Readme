@@ -1,0 +1,17 @@
+
+Nombre: Emmanuel Peto Gutiérrez
+Cuenta: 414008117
+
+Se encuentra el flujo máximo en una red mediante el algoritmo de capacidades escalables.
+
+Para compilar y ejecutar debes estar en la carpeta src. Debes tener instalado java y python 3.
+
+Compilar: make
+Ejecutar: python3 run.py
+
+Al ejecutar el programa te pide el nombre del ejemplar. Aquí debes poner, por ejemplo, red1.csv
+
+En cada iteración se muestra de color rojo la ruta aumentante de 's' a 't' y se espera 3 segundos antes de mostrar otra.
+Si quieres cambiar el tiempo lo puedes cambiar en la línea 126 de la clase Principal.java.
+
+El algoritmo se puede encontrar en la función 'escalable' en la clase Principal.java.

@@ -1,0 +1,10 @@
+#lang plai
+
+(define-type F1WAE
+[num (n number?)]
+[add (lhs F1WAE?) (rhs F1WAE?)]
+[with (name symbol?) (named-expr F1WAE?) (body F1WAE?)]
+[id (name symbol?)]
+[app (fun-name symbol?) (arg F1WAE?)])
+
+

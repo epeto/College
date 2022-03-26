@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath, amsbsy} % simbolitos
+\usepackage{multirow} % para tablas
+\usepackage{enumerate}
+\title{Práctica 7 \\ Organización y arquitectura de computadoras}
+\author{Peto Gutiérrez Emmanuel}
+\begin {document}
+\maketitle
+\begin{enumerate}[1.]
+\item \textbf{Considerando los componentes básicos de una computadora moderna, además de las llamadas al sistema descritas en la práctica, ¿qué otras resultarían necesarias?}
+	\begin{itemize}
+	\item Creat para crear un archivo.
+	\item System para ejecutar un comando del shell.
+	\item Fork para crear un proceso.
+	\end{itemize}
+\item \textbf{¿Qué comandos son básicos para un intérprete de comandos de un sistema operativo?}
+	\begin{itemize}
+	\item ls: Para listar los archivos y carpetas en el directorio.
+	\item cd: Para cambiar de directorio.
+	\item mkdir: Para crear una carpeta.
+	\item cp: Para copiar un archivo o carpeta.
+	\item mv: Para mover(cortar) un archivo o carpeta.
+	\item rm: Para remover un archivo o carpeta.
+	\end{itemize}
+\item \textbf{Investiga y describe con tus propias palabras ¿cómo resuelve una llamada al sistema el sistema operativo?}
+	\begin{itemize}
+	\item Los lenguajes de programación proveen una interfaz de llamadas al sistema, que se comunican con las llamadas del sistema operativo. Un número está asociado a cada llamada al sistema y la interfaz de llamadas al sistema tiene una tabla indexada de acuerdo a estos números. La interfaz invoca la llamada del sistema operativo y devuelve un valor si es necesario.
+	\end{itemize}
+\end{enumerate}
+\end {document}

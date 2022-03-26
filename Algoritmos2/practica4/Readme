@@ -1,0 +1,14 @@
+
+Nombre: Emmanuel Peto Gutiérrez
+Cuenta: 414008117
+
+Para compilar y ejecutar: make
+Para ejecutar cuando ya está compilado: java -cp core.jar:. Principal
+
+Para la interfaz gráfica se usó la biblioteca "core.jar" de Processing.
+Inicialmente se mostrará una cola con 8 datos, los cuales se insertan en las líneas 29-36 de la clase Principal.java.
+
+Para insertar números de uno en uno debes pinchar el botón "Insertar", el cual abrirá una ventana emergente con una entrada de texto. Para insertar varios números a la vez debes pinchar el botón "Fundir", el cual crea una cola binomial con los números que agregaste y la funde en "queue", que es la cola que se muestra en la ventana.
+
+Nota: no hago validaciones para la entrada de datos, así que si escribes caracteres que no son números (excepto por la coma) lanzará una excepción.
+

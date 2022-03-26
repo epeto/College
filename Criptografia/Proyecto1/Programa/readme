@@ -1,0 +1,15 @@
+
+Sobre el programa:
+
+para compilar: javac Hill.java
+para ejecutar: java Hill
+
+Se tienen 3 opciones: cifrar un archivo, descifrar un archivo o cifrar y descifrar un texto predeterminado.
+
+1.- Si se elige cifrar un archivo, se coloca el nombre de éste, el cual debe estar en la carpeta "original". Un ejemplo puede ser: romeo
+Después pedirá el archivo que contiene a la llave, la cual debe estar en la carpeta "llaves". Por ejemplo: 2x2
+Finalmente pedirá el nombre del archivo de salida. Este puede ser el que sea y se guardará en la carpeta "criptograma".
+
+2.- Si se elige descifrar un archivo, se coloca el nombre de éste y debe estar en la carpeta "criptograma"
+Después pedirá la llave.
+Después pedirá el nombre del archivo de salida y se guarda en la carpeta "descifrado".

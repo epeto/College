@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amssymb, amsmath, amsbsy} % simbolitos
+\usepackage{multirow} % para tablas
+\usepackage{enumerate}
+\title{Práctica 3 \\ Organización y arquitectura de computadoras}
+\author{Peto Gutiérrez Emmanuel}
+\begin {document}
+\maketitle
+
+\begin{enumerate}[1.]
+\item \textbf{¿Qué operaciones aritméticas y lógicas son básicas para un procesador?}
+	\begin{itemize}
+	\item Aritméticas: suma, resta, división y multiplicación.
+	\item Lógicas: not, and y or.
+	\end{itemize}
+\item \textbf{El diseño utilizado para realizar la adicción resulta ser ineficiente, ¿por qué? ¿Qué tipo de sumador resultaría ser más eficiente?}
+	\begin{itemize}
+	\item Sí, porque el acarreo va a pasando cada uno de los bloques de suma.
+	\item Una opción más eficiente para representar el acarreo sería hacer una función lógica que dependa
+directamente de los bits de entrada haciendo acarreo anticipado.
+	\end{itemize}
+\item \textbf{Bajo este diseño, en la ALU se calculan todas las operaciones de forma simultanea pero sólo se entrega un resultado, ¿se realiza trabajo inútil? ¿Toma tiempo adicional? ¿cuál es el costo?}
+	\begin{itemize}
+	\item Sí se realiza trabajo adicional(se utiliza más energía) pero no toma tiempo adicional, pues la corriente se distribuye cada vez que un cable se parte en varios, así que se ejecutan al mismo tiempo.
+	\end{itemize}
+\item \textbf{¿Cuántas operaciones más podemos agregar al diseño de esta ALU? ¿Qué tendríamos que
+modificar para realizar más operaciones?}
+	\begin{itemize}
+	\item Como utilizamos un multiplexor de 8x3 y tenemos 6 operaciones entonces podemos agregar otras 2
+operaciones.
+	\item Tendríamos que modificar los ALUs de 1 bit para darle soporte a 2 códigos de operación nuevos y para 2 operaciones nuevas.
+	\end{itemize}
+\end{enumerate}
+\end {document}

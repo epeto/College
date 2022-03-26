@@ -1,0 +1,1 @@
+("6.8" ("c40ba9cda02a8aa8f8fb42f0ed19e69508d5d5d3" . "29f4679105b214dbaa3e90f73700ca803767e55d") (collects #"errortrace" #"errortrace-key.rkt") (collects #"plai" #"lang" #"reader.rkt") (collects #"plai" #"main.rkt") (collects #"racket" #"runtime-config.rkt") (indirect collects #"racket" #"match" #"gen-match.rkt") (indirect collects #"racket" #"match" #"parse.rkt"))
